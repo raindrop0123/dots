@@ -130,9 +130,9 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # arch-chroot /mnt systemctl enable dhcpcd.service
 
 # Official Package
-PKG="xorg-xinit xorg-server awesome kitty"
+PKG="xorg-xinit xorg-server awesome"
 PKG="$PKG xclip ibus ibus-chewing alacritty"
-PKG="$PKG emacs neovim gvim ripgrep lsd bottom"
+PKG="$PKG neovim ripgrep lsd bottom"
 PKG="$PKG alsa-utils brightnessctl pcmanfm flameshot"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $PKG
 
