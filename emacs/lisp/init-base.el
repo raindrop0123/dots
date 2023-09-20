@@ -6,7 +6,7 @@
 (add-hook 'after-init-hook (lambda () (load-theme 'modus-vivendi t)))
 
 ;; icomplete.el
-(add-hook 'after-init-hook 'icomplete-vertical-mode)
+(add-hook 'after-init-hook 'fido-vertical-mode)
 
 ;; flymake.el
 (add-hook 'prog-mode-hook 'flymake-mode)
