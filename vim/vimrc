@@ -1,3 +1,12 @@
+" GUI
+set guifont=UbuntuMono\ Nerd\ Font\ Bold\ 14
+set guioptions-=m
+set guioptions-=T
+set guioptions-=L
+set guioptions-=r
+set guioptions-=b
+" set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h14 " set fonts in macvim
+
 " Core
 let g:loaded_gzip = 1                              " disable built-in plugins
 let g:loaded_tar = 1
@@ -58,6 +67,9 @@ set wildmode=longest:list,full                     " completion menu of command
 set splitright                                     " split window always on right
 set splitbelow                                     " split window always on bottom
 set completeopt=menuone,noinsert,noselect,preview  " complete options
+set previewpopup=height:12,width:60                " set width and height of menu
+set pumwidth=10
+set pumheight=15
 let mapleader = " "                                " use space as leader key
 let maplocalleader = ","                           " use comma as local leader key
 inoremap jk <Esc>
@@ -89,6 +101,9 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(eas
 Plug 'prabirshrestha/asyncomplete.vim', {'on': []}
 Plug 'prabirshrestha/asyncomplete-buffer.vim', {'on': []}
 Plug 'prabirshrestha/asyncomplete-file.vim', {'on': []}
+Plug 'prabirshrestha/vim-lsp', {'on': []}
+Plug 'prabirshrestha/asyncomplete-lsp.vim', {'on': []}
+Plug 'mattn/vim-lsp-settings', {'on': []}
 call plug#end()
 
 " asyncomplete.vim
@@ -96,7 +111,8 @@ call plug#end()
 " asyncomplete-file.vim
 augroup load_asyncomplete
   autocmd!
-  autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim', 'asyncomplete-file.vim')
+  autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim',
+        \ 'asyncomplete-file.vim')
         \| autocmd! load_asyncomplete
         \| inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
         \| inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -115,6 +131,43 @@ augroup load_asyncomplete
         \ 'priority': 10,
         \ 'completor': function('asyncomplete#sources#file#completor')
         \ }))
+augroup END
+
+" vim-lsp
+" vim-lsp-settings
+" asyncomplete-lsp.vim
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+  " refer to doc to add more commands
+endfunction
+
+augroup load_lsp_c
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-lsp', 'vim-lsp-settings', 'asyncomplete-lsp.vim')
+        \| autocmd! load_lsp_c
+        \| call lsp#enable()
+        \| call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+        \| call s:on_lsp_buffer_enabled()
 augroup END
 
 " catppuccin
