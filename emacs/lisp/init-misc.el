@@ -19,10 +19,7 @@
 (with-eval-after-load 'evil
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "qq" 'kill-emacs)
-  (evil-ex-define-cmd "wq" (lambda () (interactive) (save-buffer) (kill-this-buffer)))
-  (evil-set-initial-state 'ibuffer-mode 'normal)
-  (evil-set-initial-state 'dired-mode 'normal)
-  (evil-set-initial-state 'occur-mode 'normal))
+  (evil-ex-define-cmd "wq" (lambda () (interactive) (save-buffer) (kill-this-buffer))))
 
 (require-package 'evil-escape)
 (add-hook 'evil-mode-hook 'evil-escape-mode)
