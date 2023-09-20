@@ -1,0 +1,63 @@
+!! Xft
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+!! xterm
+XTerm*renderFont: true
+XTerm*faceName: xft:UbuntuMono Nerd Font Mono:style=Bold:antialias=true:size=14:minspace=False
+XTerm*faceSize: 12
+XTerm*utf8: 2
+XTerm*locale: true
+
+!! urxvt
+URxvt.font: xft:UbuntuMono Nerd Font Mono:style=Bold:antialias=true:size=14:minspace=False
+URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:style=Bold:antialias=true:size=14:minspace=False
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 104x58-11-34
+URxvt.internalBorder: 8
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt*scrollTtyKeypress: true
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyOutput: false
+URxvt.urgentOnBell: true
+URxvt.depth: 0
+URxvt.iso14755: false
+
+!! The setting below is for all programs using .Xresources
+*.background: #000000
+*.foreground: #ffffff
+*.cursorColor: #ffffff
+! black
+*.color0: #000000
+*.color8: #000000
+! red
+*.color1: #ff0000
+*.color9: #ff0000
+! green
+*.color2: #00ff00
+*.color10: #00ff00
+! yellow
+*.color3: #ffff00
+*.color11: #ffff00
+! blue
+*.color4: #0000ff
+*.color12: #0000ff
+! magenta
+*.color5: #ff00ff
+*.color13: #ff00ff
+! cyan
+*.color6: #00ffff
+*.color14: #00ffff
+! white
+*.color7: #ffffff
+*.color15: #ffffff
