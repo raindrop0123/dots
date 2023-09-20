@@ -1,0 +1,246 @@
+" GUI
+set guifont=UbuntuMono\ Nerd\ Font\ Bold\ 14
+set guioptions-=m
+set guioptions-=T
+set guioptions-=L
+set guioptions-=r
+set guioptions-=b
+" set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h14 " set fonts in macvim
+
+" Core
+let g:loaded_gzip = 1                              " disable built-in plugins
+let g:loaded_tar = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin = 1
+let g:loaded_getscript = 1
+let g:loaded_getscriptPlugin = 1
+let g:loaded_vimball = 1
+let g:loaded_vimballPlugin = 1
+let g:loaded_matchit = 0
+let g:loaded_matchparen = 0
+let g:loaded_2html_plugin = 1
+let g:loaded_logiPat = 1
+let g:loaded_rrhelper = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+set nocompatible                                   " Do not allow compatible with vi
+set number                                         " show row number
+set relativenumber                                 " show relative number
+set colorcolumn=80                                 " show wrap line
+set clipboard^=unnamed,unnamedplus                 " clipboard setup
+set whichwrap=h,l,<,>,[,],~                        " wrap rule
+set background=dark                                " background
+" colorscheme desert                                 " theme
+set cursorline                                     " highlight the line
+set cursorcolumn                                   " highlight the vertical line
+syntax on                                          " turn on syntax highlight
+filetype indent on                                 " set indent with specific filetype
+set showcmd                                        " show the current command
+set termguicolors                                  " enable true color support
+set t_Co=256                                       " trun on 256 color support
+set autoindent                                     " auto indent when go to next line
+set expandtab                                      " use space replace tab
+set tabstop=2                                      " 1 tab = 2 spaces
+set softtabstop=2                                  " 1 tab = 2 spaces
+set shiftwidth=2                                   " the char number when pressing >>, << or ==
+set nowrap                                         " do not auto-wrap line
+set scrolloff=2                                    " When scrolling vertically, the cursor's distance from the top/bottom
+set laststatus=2                                   " show status bar
+set showtabline=2                                  " show tabline
+set ruler                                          " show the position of cursor in status bar
+set noshowmatch                                    " auto highlight the other brackets
+set hlsearch                                       " highlight search
+set incsearch                                      " increase search
+set ignorecase                                     " ignore case when searching
+set smartcase                                      " For single uppercase letter search queries, make it case-sensitive.
+set nobackup                                       " disable backup file
+set noswapfile                                     " disable to generate .swp file
+set noundofile                                     " disable to generate undo history
+set visualbell                                     " flashing monitor when error occurring
+set autoread                                       " hint when this file is edited
+set listchars=tab:»»,trail:■                       " set symbol of tab and space at the end of line
+set wildmenu
+set wildmode=longest:list,full                     " completion menu of command
+set splitright                                     " split window always on right
+set splitbelow                                     " split window always on bottom
+set completeopt=menuone,noinsert,noselect,preview  " complete options
+set previewpopup=height:12,width:60                " set width and height of menu
+set pumwidth=10
+set pumheight=15
+let mapleader = " "                                " use space as leader key
+let maplocalleader = ","                           " use comma as local leader key
+inoremap jk <Esc>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Plugin
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin("~/.vim/plugged")
+Plug 'andymass/vim-matchup'
+Plug 'tpope/vim-commentary'
+Plug 'ryanoasis/vim-devicons'
+Plug 'catppuccin/vim', {'on': []}
+Plug 'machakann/vim-highlightedyank', {'on': []}
+Plug 'itchyny/lightline.vim', {'on': []}
+Plug 'raimondi/delimitMate', {'on': []}
+Plug 'luochen1990/rainbow', {'on': []}
+Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
+Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
+Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
+Plug 'prabirshrestha/asyncomplete.vim', {'on': []}
+Plug 'prabirshrestha/asyncomplete-buffer.vim', {'on': []}
+Plug 'prabirshrestha/asyncomplete-file.vim', {'on': []}
+Plug 'prabirshrestha/vim-lsp', {'on': []}
+Plug 'prabirshrestha/asyncomplete-lsp.vim', {'on': []}
+Plug 'mattn/vim-lsp-settings', {'on': []}
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
+call plug#end()
+
+" asyncomplete.vim
+" asyncomplete-buffer.vim
+" asyncomplete-file.vim
+" vim-lsp
+" vim-lsp-settings
+" asyncomplete-lsp.vim
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+  " refer to doc to add more commands
+endfunction
+
+augroup load_asyncomplete
+  autocmd!
+  autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim',
+        \ 'asyncomplete-file.vim', 'vim-lsp', 'asyncomplete-lsp.vim', 'vim-lsp-settings')
+        \| autocmd! load_asyncomplete
+        \| inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+        \| inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+        \| inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+        \| call asyncomplete#enable_for_buffer()
+        \| call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+        \ 'name': 'buffer',
+        \ 'allowlist': ['*'],
+        \ 'blocklist': ['go'],
+        \ 'completor': function('asyncomplete#sources#buffer#completor'),
+        \ 'config': {'max_buffer_size': 5000000},
+        \ }))
+        \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+        \ 'name': 'file',
+        \ 'allowlist': ['*'],
+        \ 'priority': 10,
+        \ 'completor': function('asyncomplete#sources#file#completor')
+        \ }))
+        \| call lsp#enable()
+        \| call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+        \| call s:on_lsp_buffer_enabled()
+augroup END
+
+" catppuccin
+augroup load_catppuccin
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim')
+        \| autocmd! load_catppuccin
+        \| colorscheme catppuccin_mocha
+        \| highlight Normal guibg=#11111b guifg=#cdd6f4
+        \| highlight Comment guifg=#7f849c
+        \| highlight Pmenu guibg=#1e1e2e guifg=#cdd6f4
+        \| highlight PmenuSel guibg=#a6e3a1 guifg=#1e1e2e
+augroup END
+
+" vim-highlightedyank
+augroup load_highlightedyank
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-highlightedyank')
+        \| autocmd! load_highlightedyank
+augroup END
+
+" lightline.vim
+augroup load_lightline
+  autocmd!
+  autocmd InsertEnter * call plug#load('lightline.vim')
+        \| autocmd! load_lightline
+        \| let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+        \| call lightline#enable()
+augroup END
+
+" delimitMate
+augroup load_delimitmate
+  autocmd!
+  autocmd InsertEnter * call plug#load('delimitMate')
+        \| autocmd! load_delimitmate
+augroup END
+
+" rainbow
+augroup load_rainbow
+  autocmd!
+  autocmd InsertEnter * call plug#load('rainbow')
+        \| autocmd! load_rainbow
+        \| let g:rainbow_conf = {'guifgs': ['#f38ba8', '#fab387', '#f9e2af', '#a6e3a1', '#94e2d5', '#74c7ec', '#89b4fa', '#b4befe']}
+        \| call rainbow_main#toggle()
+augroup END
+
+" indentLine
+augroup load_indentline
+  autocmd!
+  autocmd InsertEnter * call plug#load('indentLine')
+        \| autocmd! load_indentline
+        \| let g:indentLine_char = 'c'
+        \| let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+        \| IndentLinesToggle
+augroup END
+
+" NERDTree
+let NERDTreeShowHidden = 1
+nnoremap <leader>pn :NERDTreeToggle<CR>
+
+" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+nnoremap <leader>w <Plug>(easymotion-bd-w)
+nnoremap <leader>l <Plug>(easymotion-bd-jk)
+
+" FZF
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>ff :Files ~/<CR>
+nnoremap <leader>fF :Files<CR>
+nnoremap <leader>fs :Lines<CR>
+nnoremap <leader>fS :BLines<CR>
+nnoremap <leader>fw :Rg<CR>
+
+" coc.nvim
+" @Dependency: nodejs, npm
+" let g:coc_config_home = "~/.vim/misc/"
+" let g:coc_data_home = "~/.vim/coc"
+" let g:coc_global_extensions = [
+"       \ 'coc-clangd',
+"       \ ]
