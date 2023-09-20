@@ -1,0 +1,148 @@
+" Core
+set nocompatible                            " Do not allow compatible with vi
+set number                                  " show row number
+set relativenumber                          " show relative number
+set colorcolumn=80                          " show wrap line
+set clipboard^=unnamed,unnamedplus          " clipboard setup
+set whichwrap=h,l,<,>,[,],~                 " wrap rule
+set background=dark                         " background
+colorscheme desert                          " theme
+set cursorline                              " highlight the line
+set cursorcolumn                            " highlight the vertical line
+syntax on                                   " turn on syntax highlight
+filetype indent on                          " set indent with specific filetype
+set showcmd                                 " show the current command
+set termguicolors                           " enable true color support
+set t_Co=256                                " trun on 256 color support
+set autoindent                              " auto indent when go to next line
+set expandtab                               " use space replace tab
+set tabstop=2                               " 1 tab = 2 spaces
+set softtabstop=2                           " 1 tab = 2 spaces
+set shiftwidth=2                            " the char number when pressing >>, << or ==
+set nowrap                                  " do not auto-wrap line
+set scrolloff=2                             " When scrolling vertically, the cursor's distance from the top/bottom
+set laststatus=2                            " show status bar
+set ruler                                   " show the position of cursor in status bar
+set noshowmatch                               " auto highlight the other brackets
+set hlsearch                                " highlight search
+set incsearch                               " increase search
+set ignorecase                              " ignore case when searching
+set smartcase                               " For single uppercase letter search queries, make it case-sensitive.
+set nobackup                                " disable backup file
+set noswapfile                              " disable to generate .swp file
+set noundofile                              " disable to generate undo history
+set visualbell                              " flashing monitor when error occurring
+set autoread                                " hint when this file is edited
+set listchars=tab:»»,trail:■                " set symbol of tab and space at the end of line
+set wildmenu
+set wildmode=longest:list,full              " completion menu of command
+set splitright                              " split window always on right
+set splitbelow                              " split window always on bottom
+let mapleader = " "                         " use space as leader key
+let maplocalleader = ","                    " use comma as local leader key
+inoremap jk <Esc>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Plugin
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin("~/.vim/plugged")
+Plug 'andymass/vim-matchup'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank', { 'on': [] }
+Plug 'nanotech/jellybeans.vim', { 'on': [] }
+Plug 'itchyny/lightline.vim', { 'on': [] }
+Plug 'raimondi/delimitMate', { 'on': [] }
+Plug 'luochen1990/rainbow', { 'on': [] }
+Plug 'Yggdroot/indentLine', { 'on': [] }
+Plug 'gelguy/wilder.nvim', { 'on': [] }
+Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines'] }
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle'] }
+Plug 'easymotion/vim-easymotion', { 'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)'] }
+call plug#end()
+
+" jellybeans
+augroup load_jellybeans
+  autocmd!
+  autocmd InsertEnter * call plug#load('jellybeans.vim')
+        \| autocmd! load_jellybeans
+        \| colorscheme jellybeans
+augroup END
+
+" vim-highlightedyank
+augroup load_highlightedyank
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-highlightedyank')
+        \| autocmd! load_highlightedyank
+augroup END
+
+" lightline.vim
+augroup load_lightline
+  autocmd!
+  autocmd InsertEnter * call plug#load('lightline.vim')
+        \| autocmd! load_lightline
+        \| let g:lightline = { 'colorscheme': 'jellybeans' }
+        \| call lightline#enable()
+augroup END
+
+" delimitMate
+augroup load_delimitmate
+  autocmd!
+  autocmd InsertEnter * call plug#load('delimitMate')
+        \| autocmd! load_delimitmate
+augroup END
+
+" rainbow
+augroup load_rainbow
+  autocmd!
+  autocmd InsertEnter * call plug#load('rainbow')
+        \| autocmd! load_rainbow
+        \| call rainbow_main#toggle()
+augroup END
+
+" indentLine
+augroup load_indentline
+  autocmd!
+  autocmd InsertEnter * call plug#load('indentLine')
+        \| autocmd! load_indentline
+        \| let g:indentLine_char = 'c'
+        \| let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+        \| IndentLinesToggle
+augroup END
+
+" wilder.nvim
+augroup load_wilder
+  autocmd!
+  autocmd CmdlineEnter * call plug#load('wilder.nvim')
+        \| autocmd! load_wilder
+        \| call wilder#setup({'modes': [':', '/', '?']})
+        \| call wilder#set_option('renderer', 
+        \ wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+        \ 'highlights': { 'border': 'Normal' },
+        \ 'border': 'rounded',
+        \ })))
+augroup END
+
+" NERDTree
+let NERDTreeShowHidden = 1
+nnoremap <leader>pn :NERDTreeToggle<CR>
+
+" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+nnoremap <leader>w <Plug>(easymotion-bd-w)
+nnoremap <leader>l <Plug>(easymotion-bd-jk)
+
+" FZF
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>ff :Files ~/<CR>
+nnoremap <leader>fF :Files<CR>
+nnoremap <leader>fs :Lines<CR>
+nnoremap <leader>fS :BLines<CR>
+nnoremap <leader>fw :Rg<CR>
