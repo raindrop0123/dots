@@ -75,4 +75,4 @@ require('plugin.util.mapping')
 
 -- set background and colorscheme
 vim.api.nvim_command('set background=dark')
-vim.api.nvim_command('colorscheme desert')
+-- vim.api.nvim_command('colorscheme desert')
