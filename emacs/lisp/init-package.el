@@ -5,10 +5,10 @@
 (require-package 'vertico)
 (add-hook 'after-init-hook 'vertico-mode)
 (with-eval-after-load 'vertico
-  (setq vertico-scroll-margin 0)
-  (setq vertico-count 16)
-  (setq vertico-resize t)
-  (setq vertico-cycle t))
+  (setq-default vertico-scroll-margin 0)
+  (setq-default vertico-count 16)
+  (setq-default vertico-resize t)
+  (setq-default vertico-cycle t))
 
 (require-package 'orderless)
 (setq completion-styles '(orderless basic))
