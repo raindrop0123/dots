@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; modus-themes.el
-;; (add-hook 'after-init-hook (lambda () (load-theme 'modus-vivendi t)))
+(add-hook 'after-init-hook (lambda () (load-theme 'modus-vivendi t)))
 
 ;; flymake.el
 (add-hook 'prog-mode-hook 'flymake-mode)
