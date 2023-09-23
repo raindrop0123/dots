@@ -2,14 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'catppuccin-theme)
-(add-hook
- 'after-init-hook
- (lambda ()
-   (load-theme 'catppuccin t)
-   (custom-set-faces '(default ((t (:background "#11111b")))))
-   (custom-set-faces '(font-lock-comment-face ((t (:foreground "#9399b2")))))))
-
 (require-package 'vertico)
 (add-hook 'after-init-hook 'vertico-mode)
 (with-eval-after-load 'vertico
