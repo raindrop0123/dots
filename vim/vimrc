@@ -1,5 +1,5 @@
 " GUI
-set guifont=UbuntuMono\ Nerd\ Font\ Bold\ 14
+set guifont=Noto\ Sans\ Mono\ Medium\ 13
 set guioptions-=m
 set guioptions-=T
 set guioptions-=L
@@ -105,6 +105,7 @@ Plug 'ryanoasis/vim-devicons', {'on': ['NERDTreeToggle']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
 Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'voldikss/vim-floaterm'
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
@@ -236,8 +237,12 @@ let g:vista_executive_for = {
 " which-key
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+" vim-floaterm
+nnoremap <silent> <leader>tf :FloatermToggle<CR>
+tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
 
 " coc.nvim
 " @Dependency: nodejs, npm
