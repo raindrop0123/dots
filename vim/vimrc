@@ -33,7 +33,7 @@ set colorcolumn=80                                 " show wrap line
 set clipboard^=unnamed,unnamedplus                 " clipboard setup
 set whichwrap=h,l,<,>,[,],~                        " wrap rule
 set background=dark                                " background
-colorscheme desert                                 " theme
+colorscheme slate                                  " theme
 set cursorline                                     " highlight the line
 set cursorcolumn                                   " highlight the vertical line
 syntax on                                          " turn on syntax highlight
