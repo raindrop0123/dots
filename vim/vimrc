@@ -33,7 +33,7 @@ set colorcolumn=80                                 " show wrap line
 set clipboard^=unnamed,unnamedplus                 " clipboard setup
 set whichwrap=h,l,<,>,[,],~                        " wrap rule
 set background=dark                                " background
-colorscheme slate                                  " theme
+" colorscheme desert                                 " theme
 set cursorline                                     " highlight the line
 set cursorcolumn                                   " highlight the vertical line
 syntax on                                          " turn on syntax highlight
@@ -88,6 +88,8 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
+Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'sainnhe/everforest', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -106,8 +108,38 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(eas
 Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
+Plug 'puremourning/vimspector', {'on': []}
+Plug 'tpope/vim-fugitive', {'on': ['G', 'Git']}
+Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
+
+" everforest
+augroup load_everforest
+  autocmd!
+  autocmd InsertEnter * call plug#load('everforest')
+        \| autocmd! load_everforest
+        \| let g:everforest_background = 'hard'
+        \| let g:everforest_better_performance = 1
+        \| colorscheme everforest
+augroup END
+
+" lightline.vim
+augroup load_lightline
+  autocmd!
+  autocmd InsertEnter * call plug#load('lightline.vim')
+        \| autocmd! load_lightline
+        \| let g:lightline = {'colorscheme': 'everforest'}
+        \| call lightline#enable()
+augroup END
+
+" vim-gitgutter
+augroup load_gitgutter
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-gitgutter')
+        \| autocmd! load_gitgutter
+        \| call gitgutter#enable()
+augroup END
 
 " asyncomplete.vim
 " asyncomplete-buffer.vim
@@ -175,15 +207,6 @@ augroup load_highlightedyank
         \| autocmd! load_highlightedyank
 augroup END
 
-" lightline.vim
-augroup load_lightline
-  autocmd!
-  autocmd InsertEnter * call plug#load('lightline.vim')
-        \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'jellybeans'}
-        \| call lightline#enable()
-augroup END
-
 " delimitMate
 augroup load_delimitmate
   autocmd!
@@ -196,7 +219,6 @@ augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
         \| autocmd! load_rainbow
-        \| let g:rainbow_conf = {'guifgs': ['#f38ba8', '#fab387', '#f9e2af', '#a6e3a1', '#94e2d5', '#74c7ec', '#89b4fa', '#b4befe']}
         \| call rainbow_main#toggle()
 augroup END
 
