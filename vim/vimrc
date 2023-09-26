@@ -89,7 +89,7 @@ call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
-Plug 'junegunn/seoul256.vim', {'on': []}
+Plug 'tomasiser/vim-code-dark', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -115,13 +115,12 @@ Plug 'gelguy/wilder.nvim', {'on': []}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" seoul256.vim
-augroup load_seoul256
+" vim-code-dark
+augroup load_code
   autocmd!
-  autocmd InsertEnter * call plug#load('seoul256.vim')
-        \| autocmd! load_seoul256
-        \| let g:seoul256_background = 233
-        \| colorscheme seoul256
+  autocmd InsertEnter * call plug#load('vim-code-dark')
+        \| autocmd! load_code
+        \| colorscheme codedark
 augroup END
 
 " lightline.vim
@@ -129,7 +128,7 @@ augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'seoul256'}
+        \| let g:lightline = {'colorscheme': 'one'}
         \| call lightline#enable()
 augroup END
 
