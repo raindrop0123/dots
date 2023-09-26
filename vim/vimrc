@@ -88,7 +88,7 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
 Plug 'sainnhe/everforest', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
@@ -132,14 +132,6 @@ augroup load_lightline
         \| autocmd! load_lightline
         \| let g:lightline = {'colorscheme': 'everforest'}
         \| call lightline#enable()
-augroup END
-
-" vim-gitgutter
-augroup load_gitgutter
-  autocmd!
-  autocmd InsertEnter * call plug#load('vim-gitgutter')
-        \| autocmd! load_gitgutter
-        \| call gitgutter#enable()
 augroup END
 
 " wilder.nvim
