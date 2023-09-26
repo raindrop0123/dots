@@ -33,7 +33,7 @@ set colorcolumn=80                                 " show wrap line
 set clipboard^=unnamed,unnamedplus                 " clipboard setup
 set whichwrap=h,l,<,>,[,],~                        " wrap rule
 set background=dark                                " background
-" colorscheme desert                                 " theme
+colorscheme retrobox                               " theme
 set cursorline                                     " highlight the line
 set cursorcolumn                                   " highlight the vertical line
 syntax on                                          " turn on syntax highlight
@@ -88,7 +88,6 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'lifepillar/vim-solarized8', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -112,7 +111,6 @@ Plug 'puremourning/vimspector', {'on': []}
 Plug 'tpope/vim-fugitive', {'on': ['G', 'Git']}
 Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
 Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
-
 " Plug 'MarcWeber/vim-addon-mw-utils', {'on': []}
 " Plug 'tomtom/tlib_vim', {'on': []}
 " Plug 'garbas/vim-snipmate', {'on': []}
@@ -120,20 +118,12 @@ Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" vim-solarized8
-augroup load_solarized
-  autocmd!
-  autocmd InsertEnter * call plug#load('vim-solarized8')
-        \| autocmd! load_solarized
-        \| colorscheme solarized8_high
-augroup END
-
 " lightline.vim
 augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'solarized'}
+        \| let g:lightline = {'colorscheme': 'deus'}
         \| call lightline#enable()
 augroup END
 
