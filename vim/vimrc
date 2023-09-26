@@ -116,10 +116,10 @@ Plug 'gelguy/wilder.nvim', {'on': []}
 call plug#end()
 
 " vim-code-dark
-augroup load_code
+augroup load_codedark
   autocmd!
   autocmd InsertEnter * call plug#load('vim-code-dark')
-        \| autocmd! load_code
+        \| autocmd! load_codedark
         \| colorscheme codedark
 augroup END
 
