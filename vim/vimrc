@@ -89,7 +89,7 @@ call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
-Plug 'sainnhe/everforest', {'on': []}
+Plug 'junegunn/seoul256.vim', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -115,14 +115,13 @@ Plug 'gelguy/wilder.nvim', {'on': []}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" everforest
-augroup load_everforest
+" seoul256.vim
+augroup load_seoul256
   autocmd!
-  autocmd InsertEnter * call plug#load('everforest')
-        \| autocmd! load_everforest
-        \| let g:everforest_background = 'hard'
-        \| let g:everforest_better_performance = 1
-        \| colorscheme everforest
+  autocmd InsertEnter * call plug#load('seoul256.vim')
+        \| autocmd! load_seoul256
+        \| let g:seoul256_background = 233
+        \| colorscheme seoul256
 augroup END
 
 " lightline.vim
@@ -130,7 +129,7 @@ augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'everforest'}
+        \| let g:lightline = {'colorscheme': 'seoul256'}
         \| call lightline#enable()
 augroup END
 
