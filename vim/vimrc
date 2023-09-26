@@ -88,13 +88,13 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
-Plug 'tomasiser/vim-code-dark', {'on': []}
+Plug 'lifepillar/vim-solarized8', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'gelguy/wilder.nvim', {'on': []}
 Plug 'prabirshrestha/asyncomplete.vim', {'on': []}
 Plug 'prabirshrestha/asyncomplete-buffer.vim', {'on': []}
 Plug 'prabirshrestha/asyncomplete-file.vim', {'on': []}
@@ -111,16 +111,21 @@ Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
 Plug 'puremourning/vimspector', {'on': []}
 Plug 'tpope/vim-fugitive', {'on': ['G', 'Git']}
 Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
-Plug 'gelguy/wilder.nvim', {'on': []}
+Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
+
+" Plug 'MarcWeber/vim-addon-mw-utils', {'on': []}
+" Plug 'tomtom/tlib_vim', {'on': []}
+" Plug 'garbas/vim-snipmate', {'on': []}
+" Plug 'honza/vim-snippets', {'on': []}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" vim-code-dark
-augroup load_codedark
+" vim-solarized8
+augroup load_solarized
   autocmd!
-  autocmd InsertEnter * call plug#load('vim-code-dark')
-        \| autocmd! load_codedark
-        \| colorscheme codedark
+  autocmd InsertEnter * call plug#load('vim-solarized8')
+        \| autocmd! load_solarized
+        \| colorscheme solarized8_high
 augroup END
 
 " lightline.vim
@@ -128,7 +133,7 @@ augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'one'}
+        \| let g:lightline = {'colorscheme': 'solarized'}
         \| call lightline#enable()
 augroup END
 
@@ -222,7 +227,6 @@ augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
         \| autocmd! load_rainbow
-        \| let g:rainbow_conf = {'guifgs': ['#dcdcaa', '#c586c0', '#569cd6']}
         \| call rainbow_main#toggle()
 augroup END
 
@@ -238,7 +242,7 @@ augroup END
 
 " NERDTree
 let NERDTreeShowHidden = 1
-nnoremap <leader>pn :NERDTreeToggle<CR>
+nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
 
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
@@ -246,12 +250,12 @@ nnoremap <leader>W <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-bd-jk)
 
 " FZF
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>ff :Files ~/<CR>
-nnoremap <leader>fF :Files<CR>
-nnoremap <leader>fs :Lines<CR>
-nnoremap <leader>fS :BLines<CR>
-nnoremap <leader>fw :Rg<CR>
+nnoremap <leader>fb <Cmd>Buffers<CR>
+nnoremap <leader>ff <Cmd>Files ~/<CR>
+nnoremap <leader>fF <Cmd>Files<CR>
+nnoremap <leader>fs <Cmd>Lines<CR>
+nnoremap <leader>fS <Cmd>BLines<CR>
+nnoremap <leader>fw <Cmd>Rg<CR>
 
 " Vista
 nnoremap <leader>lo :Vista<CR>
@@ -267,7 +271,7 @@ nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
 " vim-floaterm
-nnoremap <silent> <leader>tf :FloatermToggle<CR>
+nnoremap <silent> <leader>tf <Cmd>FloatermToggle<CR>
 tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
 
 " coc.nvim
