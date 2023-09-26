@@ -222,6 +222,7 @@ augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
         \| autocmd! load_rainbow
+        \| let g:rainbow_conf = {'guifgs': ['#dcdcaa', '#c586c0', '#569cd6']}
         \| call rainbow_main#toggle()
 augroup END
 
