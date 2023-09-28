@@ -25,7 +25,7 @@ vim.keymap.set('n', '<leader>fo', '<Cmd>Telescope oldfiles theme=ivy<CR>', { des
 vim.keymap.set('n', '<leader>fw', '<Cmd>Telescope live_grep theme=ivy<CR>', { desc = 'Live Grep' })
 vim.keymap.set('n', '<leader>fW', '<Cmd>Telescope live_grep_args theme=ivy<CR>', { desc = 'Live Grep Args' })
 vim.keymap.set('n', '<leader>fb', '<Cmd>Telescope buffers theme=ivy<CR>', { desc = 'Find Buffers' })
-vim.keymap.set('n', '<leader>fn', '<Cmd>Telescope notify theme=ivy< theme=ivyCR>', { desc = 'Notifications' })
+vim.keymap.set('n', '<leader>fn', '<Cmd>Telescope notify theme=ivy<CR>', { desc = 'Notifications' })
 
 -- mason
 vim.keymap.set('n', '<leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason Panel' })
