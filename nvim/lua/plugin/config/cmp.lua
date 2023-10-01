@@ -40,7 +40,7 @@ return function()
       priority_weight = 2,
     },
     formatting = {
-      fields = { 'abbr', 'kind', 'menu' },
+      fields = { 'kind', 'abbr', 'menu' },
       format = function(entry, vim_item)
         local lspkind_icon = vim.tbl_deep_extend('force', icon.kind, icon.type, icon.cmp)
         -- vim_item.kind = string.format(' %s  %s', lspkind_icon[vim_item.kind] or icon.cmp.undefined, vim_item.kind or '')
