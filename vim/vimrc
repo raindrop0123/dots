@@ -88,7 +88,7 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'nanotech/jellybeans.vim', {'on': []}
+Plug 'catppuccin/vim'
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -119,12 +119,18 @@ Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" jellybeans.vim
-augroup load_jellybeans
+" catppuccin
+augroup load_catppuccin
   autocmd!
-  autocmd InsertEnter * call plug#load('jellybeans.vim')
-        \| autocmd! load_jellybeans
-        \| colorscheme jellybeans
+  autocmd InsertEnter * call plug#load('vim')
+        \| autocmd! load_catppuccin
+        \| colorscheme catppuccin_mocha
+        \| highlight Normal guibg=#11111b
+        \| highlight Comment guifg=#7f849c
+        \| highlight CursorLineNr guifg=#a6e3a1
+        \| highlight Pmenu guifg=#cdd6f4 guibg=#11111b
+        \| highlight PmenuSel guifg=#11111b guibg=#a6e3a1
+        \| highlight PmenuSBar guibg=#1e1e2e
 augroup END
 
 " lightline.vim
@@ -132,7 +138,7 @@ augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'jellybeans'}
+        \| let g:lightline = {'colorscheme': 'catppuccin_mocha'}
         \| call lightline#enable()
 augroup END
 
@@ -226,6 +232,7 @@ augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
         \| autocmd! load_rainbow
+        \| let g:rainbow_conf = {'guifgs': ['#f38ba8', '#fab387', '#f9e2af', '#a6e3a1', '#89dceb', '#89b4fa', '#cba6f7', '#b4befe']}
         \| call rainbow_main#toggle()
 augroup END
 
