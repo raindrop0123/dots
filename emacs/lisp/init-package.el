@@ -3,6 +3,9 @@
 ;;; Code:
 
 ;; [[ init-ui.el ]]
+(require-package 'beacon)
+(add-hook 'after-init-hook 'beacon-mode)
+
 (require-package 'catppuccin-theme)
 (require-package 'doom-themes)
 (add-hook
