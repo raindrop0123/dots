@@ -197,13 +197,19 @@
   (setq highlight-indent-guides-auto-enabled nil)
   (custom-set-faces '(highlight-indent-guides-character-face ((t (:foreground "#cdd6f4"))))))
 
-(require-package 'lsp-mode)
-(require-package 'lsp-ui)
-(require-package 'lsp-treemacs)
-(require-package 'rainbow-mode)
+(require-package 'lua-mode)
+(with-eval-after-load 'lua-mode
+  (setq lua-indent-level 2)
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil))
+
 (require-package 'markdown-mode)
 (require-package 'json-mode)
 (require-package 'yaml-mode)
+(require-package 'rainbow-mode)
+(require-package 'lsp-mode)
+(require-package 'lsp-ui)
+(require-package 'lsp-treemacs)
 
 ;; [[ init-general.el ]]
 (require-package 'general)
