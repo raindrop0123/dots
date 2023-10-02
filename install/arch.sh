@@ -132,7 +132,7 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # Official Package
 PKG="xorg-xinit xorg-server awesome"
 PKG="$PKG xclip ibus ibus-chewing alacritty"
-PKG="$PKG emacs ripgrep lsd bottom"
+PKG="$PKG neovim ripgrep lsd bottom"
 PKG="$PKG alsa-utils brightnessctl pcmanfm flameshot"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $PKG
 
