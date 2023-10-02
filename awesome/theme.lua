@@ -8,59 +8,59 @@ local theme = {}
 
 ---- General
 theme.font = 'sans bold 10'
-theme.bg_normal = '#000000'
-theme.bg_focus = '#000000'
-theme.bg_urgent = '#ff0000'
-theme.bg_minimize = '#000000'
-theme.bg_systray = '#000000'
-theme.fg_normal = '#ffffff'
-theme.fg_focus = '#ffffff'
-theme.fg_urgent = '#000000'
-theme.fg_minimize = '#ffffff'
+theme.bg_normal = '#11111b'
+theme.bg_focus = '#11111b'
+theme.bg_urgent = '#f38ba8'
+theme.bg_minimize = '#11111b'
+theme.bg_systray = '#11111b'
+theme.fg_normal = '#cdd6f4'
+theme.fg_focus = '#cdd6f4'
+theme.fg_urgent = '#11111b'
+theme.fg_minimize = '#cdd6f4'
 
 ---- Gap
 theme.useless_gap = dpi(3)
 
 ---- Border
 theme.border_width = dpi(2)
-theme.border_normal = '#000000'
-theme.border_focus = '#808080'
-theme.border_marked = '#ff0000'
+theme.border_normal = '#11111b'
+theme.border_focus = '#b4befe'
+theme.border_marked = '#f38ba8'
 
 ---- Taglist
 theme.taglist_font = 'sans bold 12'
-theme.taglist_bg_focus = '#000000'
-theme.taglist_bg_occupied = '#000000'
-theme.taglist_bg_empty = '#000000'
-theme.taglist_fg_focus = '#ffffff'
-theme.taglist_fg_occupied = '#808080'
-theme.taglist_fg_empty = '#000000'
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(0), '#808080')
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(0), '#ffffff')
+theme.taglist_bg_focus = '#11111b'
+theme.taglist_bg_occupied = '#11111b'
+theme.taglist_bg_empty = '#11111b'
+theme.taglist_fg_focus = '#f9e2af'
+theme.taglist_fg_occupied = '#6c7086'
+theme.taglist_fg_empty = '#11111b'
+theme.taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(0), '#45475a')
+theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(0), '#cdd6f4')
 
 ---- Prompt
-theme.prompt_bg = '#000000'
-theme.prompt_bg_cursor = '#ffffff'
-theme.prompt_fg = '#ffffff'
-theme.prompt_fg_cursor = '#000000'
+theme.prompt_bg = '#11111b'
+theme.prompt_bg_cursor = '#cdd6f4'
+theme.prompt_fg = '#cdd6f4'
+theme.prompt_fg_cursor = '#11111b'
 
 ---- Hotkey
 theme.hotkeys_font = 'sans bold 10'
 theme.hotkeys_description_font = 'sans bold 10'
 theme.hotkeys_group_margin = dpi(20)
-theme.hotkeys_modifiers_fg = '#ffffff'
-theme.hotkeys_label_bg = '#000000'
-theme.hotkeys_label_fg = '#ffffff'
-theme.hotkeys_bg = '#000000'
-theme.hotkeys_fg = '#ffffff'
-theme.hotkeys_border_color = '#808080'
+theme.hotkeys_modifiers_fg = '#fab387'
+theme.hotkeys_label_bg = '#11111b'
+theme.hotkeys_label_fg = '#cdd6f4'
+theme.hotkeys_bg = '#11111b'
+theme.hotkeys_fg = '#cdd6f4'
+theme.hotkeys_border_color = '#89b4fa'
 theme.hotkeys_border_width = dpi(2)
 
 ---- Notification
 theme.notification_font = 'sans bold 10'
-theme.notification_bg = '#000000'
-theme.notification_fg = '#ffffff'
-theme.notification_border_color = '#808080'
+theme.notification_bg = '#11111b'
+theme.notification_fg = '#cdd6f4'
+theme.notification_border_color = '#45475a'
 theme.notification_border_width = dpi(2)
 theme.notification_icon_size = dpi(32)
 theme.notification_width = dpi(360)
@@ -73,15 +73,15 @@ require('naughty').config.defaults.margin = theme.notification_margin
 require('naughty').config.defaults.border_width = theme.notification_border_width
 
 ---- Awesome Icon
-theme.awesome_icon = theme_assets.awesome_icon(dpi(30), '#808080', '#000000')
+theme.awesome_icon = theme_assets.awesome_icon(dpi(30), '#cba6f7', '#11111b')
 
 ---- Menu
 theme.menu_font = 'sans bold 10'
-theme.menu_bg_normal = '#000000'
-theme.menu_bg_focus = '#808080'
-theme.menu_fg_normal = '#ffffff'
-theme.menu_fg_focus = '#ffffff'
-theme.menu_border_color = '#000000'
+theme.menu_bg_normal = '#11111b'
+theme.menu_bg_focus = '#a6e3a1'
+theme.menu_fg_normal = '#cdd6f4'
+theme.menu_fg_focus = '#11111b'
+theme.menu_border_color = '#11111b'
 theme.menu_border_width = dpi(1)
 theme.menu_submenu_icon = themes_path..'default/submenu.png'
 theme.menu_height = dpi(30)
@@ -92,10 +92,10 @@ theme.wallpaper = nil
 -- theme.wallpaper = themes_path..'default/background.png'
 
 ---- TitleBar
-theme.titlebar_bg_focus = '#000000'
-theme.titlebar_bg_normal = '#000000'
-theme.titlebar_fg_focus = '#ffffff'
-theme.titlebar_fg_normal = '#000000'
+theme.titlebar_bg_focus = '#11111b'
+theme.titlebar_bg_normal = '#11111b'
+theme.titlebar_fg_focus = '#cdd6f4'
+theme.titlebar_fg_normal = '#11111b'
 theme.titlebar_close_button_normal = themes_path..'default/titlebar/close_normal.png'
 theme.titlebar_close_button_focus = themes_path..'default/titlebar/close_focus.png'
 theme.titlebar_minimize_button_normal = themes_path..'default/titlebar/minimize_normal.png'
