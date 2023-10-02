@@ -115,7 +115,7 @@ local function set_wallpaper(s)
       wallpaper = wallpaper(s)
     end
     -- gears.wallpaper.maximized(wallpaper, s, true)
-    gears.wallpaper.set('#000000')
+    gears.wallpaper.set('#11111b')
   end
 end
 
