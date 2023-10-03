@@ -16,22 +16,6 @@ local config = {
   },
   buftype_exclude = { 'terminal', 'nofile' },
   show_current_context = true,
-  context_patterns = {
-    '^if',
-    '^table',
-    'block',
-    'class',
-    'for',
-    'function',
-    'if_statement',
-    'import',
-    'list_literal',
-    'method',
-    'selector',
-    'type',
-    'var',
-    'while',
-  },
   space_char_blankline = ' ',
 }
 
