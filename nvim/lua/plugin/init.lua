@@ -24,8 +24,9 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     lazy = true,
+    main = 'ibl',
     event = 'InsertEnter',
-    config = function() require('ibl').setup() end,
+    config = true,
   },
   {
     'lewis6991/gitsigns.nvim',
