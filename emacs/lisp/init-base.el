@@ -7,12 +7,12 @@
   "Set font for GUI environment."
   (cond
    ((eq window-system 'pgtk)
-    (set-face-attribute 'default nil :height 140 :family "Hack Nerd Font"))
+    (set-face-attribute 'default nil :height 140 :family "Noto Sans Mono"))
    (t
     (let ((emacs-font-size 12) (chinese-font-name  "TsangerJinKai03-6763") english-font-name)
       (cond
        ((featurep 'cocoa) (setq english-font-name "Monaco"))
-       ((string-equal system-type "gnu/linux") (setq english-font-name "Hack Nerd Font")))
+       ((string-equal system-type "gnu/linux") (setq english-font-name "Noto Sans Mono")))
       (when (display-grayscale-p)
         (set-frame-font (format "%s-%s" (eval english-font-name) (eval emacs-font-size)))
         (set-fontset-font (frame-parameter nil 'font) 'unicode (eval english-font-name))
