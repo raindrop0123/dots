@@ -89,7 +89,9 @@ endif
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'catppuccin/vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'terryma/vim-expand-region', {'on': []}
+Plug 'catppuccin/vim', {'on': []}
 Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
@@ -102,6 +104,10 @@ Plug 'prabirshrestha/asyncomplete-file.vim', {'on': []}
 Plug 'prabirshrestha/vim-lsp', {'on': []}
 Plug 'prabirshrestha/asyncomplete-lsp.vim', {'on': []}
 Plug 'mattn/vim-lsp-settings', {'on': []}
+Plug 'prabirshrestha/asyncomplete-neosnippet.vim', {'on': []}
+Plug 'Shougo/neosnippet.vim', {'on': []}
+Plug 'Shougo/neosnippet-snippets', {'on': []}
+Plug 'honza/vim-snippets', {'on': []}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
@@ -141,6 +147,14 @@ augroup load_lightline
         \| call lightline#enable()
 augroup END
 
+" vim-expand-region
+augroup load_expand_region
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-expand-region')
+        \| autocmd! load_expand_region
+        \| call expand_region#init()
+augroup END
+
 " wilder.nvim
 augroup load_wilder
   autocmd!
@@ -159,6 +173,9 @@ augroup END
 " vim-lsp
 " vim-lsp-settings
 " asyncomplete-lsp.vim
+" neosnippet.vim
+" neosnippet-snippets
+" asyncomplete-neosnippet.vim
 
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
@@ -181,11 +198,17 @@ function! s:on_lsp_buffer_enabled() abort
   " refer to doc to add more commands
 endfunction
 
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 augroup load_asyncomplete
   autocmd!
   autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim',
-        \ 'asyncomplete-file.vim', 'vim-lsp', 'asyncomplete-lsp.vim', 'vim-lsp-settings')
+        \ 'asyncomplete-file.vim', 'vim-lsp', 'asyncomplete-lsp.vim', 'vim-lsp-settings',
+        \ 'neosnippet.vim', 'neosnippet-snippets', 'asyncomplete-neosnippet.vim')
         \| autocmd! load_asyncomplete
+        \| let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
         \| inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
         \| inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
         \| inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
@@ -202,6 +225,11 @@ augroup load_asyncomplete
         \ 'allowlist': ['*'],
         \ 'priority': 10,
         \ 'completor': function('asyncomplete#sources#file#completor')
+        \ }))
+        \| call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+        \ 'name': 'neosnippet',
+        \ 'allowlist': ['*'],
+        \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
         \ }))
         \| call lsp#enable()
         \| call lsp#register_server({
