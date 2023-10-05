@@ -169,6 +169,7 @@
   (require 'treemacs-nerd-icons)
   (treemacs-load-theme "nerd-icons"))
 
+(require-package 'avy)
 (require-package 'undo-tree)
 (require-package 'olivetti)
 
@@ -261,6 +262,8 @@
     "ww" 'ace-window
     "wd" 'delete-other-windows
     "wD" 'delete-window
+    "W" 'avy-goto-word-0
+    "L" 'avy-goto-line
     )
   )
 
