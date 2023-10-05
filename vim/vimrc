@@ -37,7 +37,7 @@ set background=dark                                " background
 set cursorline                                     " highlight the line
 set cursorcolumn                                   " highlight the vertical line
 syntax on                                          " turn on syntax highlight
-filetype indent on                                 " set indent with specific filetype
+filetype plugin indent on                                 " set indent with specific filetype
 set showcmd                                        " show the current command
 set termguicolors                                  " enable true color support
 set t_Co=256                                       " trun on 256 color support
@@ -114,10 +114,6 @@ Plug 'puremourning/vimspector', {'on': []}
 Plug 'tpope/vim-fugitive', {'on': ['G', 'Git']}
 Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
 Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
-" Plug 'MarcWeber/vim-addon-mw-utils', {'on': []}
-" Plug 'tomtom/tlib_vim', {'on': []}
-" Plug 'garbas/vim-snipmate', {'on': []}
-" Plug 'honza/vim-snippets', {'on': []}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
