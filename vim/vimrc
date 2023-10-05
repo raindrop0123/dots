@@ -258,7 +258,7 @@ nnoremap <leader>W <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-bd-jk)
 
 " FZF
-let g:fzf_layout = { 'down': '30%'}
+let g:fzf_layout = {'down': '30%'}
 nnoremap <leader>fb <Cmd>Buffers<CR>
 nnoremap <leader>ff <Cmd>Files ~/<CR>
 nnoremap <leader>fF <Cmd>Files<CR>
