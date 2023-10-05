@@ -88,7 +88,7 @@ theme.menu_height = dpi(30)
 theme.menu_width = dpi(180)
 
 ---- Wallpaper
-theme.wallpaper = '~/.config/awesome/wallpaper/wp1.png'
+theme.wallpaper = nil
 -- theme.wallpaper = themes_path..'default/background.png'
 
 ---- TitleBar
