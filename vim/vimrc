@@ -66,6 +66,7 @@ set wildmenu
 set wildmode=longest:list,full                     " completion menu of command
 set splitright                                     " split window always on right
 set splitbelow                                     " split window always on bottom
+set sidescroll = 1
 set completeopt=menuone,noinsert,noselect,preview  " complete options
 set previewpopup=height:12,width:60                " set width and height of menu
 set pumwidth=10                                    " width of Pmenu
