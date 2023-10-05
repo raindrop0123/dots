@@ -149,7 +149,4 @@ AURPKG="google-chrome"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURPKG"
 
 AURFONT="ttf-tw ttf-ms-fonts"
-# AURFONT="$AURFONT ttf-monaco otf-monego-git"
-# AURFONT="$AURFONT ttf-segoe-ui-variable"
-# AURFONT="$AURFONT apple-fonts ttf-mac-fonts" # ttf-mac-fonts need to install svn manually and these two packages are conflict 
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURFONT"
