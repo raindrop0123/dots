@@ -8,24 +8,24 @@ set guioptions-=b
 " set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h14 " set fonts in macvim
 
 " Core
-let g:loaded_gzip = 1                              " disable built-in plugins
-let g:loaded_tar = 1
-let g:loaded_tarPlugin = 1
-let g:loaded_zip = 1
-let g:loaded_zipPlugin = 1
-let g:loaded_getscript = 1
-let g:loaded_getscriptPlugin = 1
-let g:loaded_vimball = 1
-let g:loaded_vimballPlugin = 1
-let g:loaded_matchit = 0
-let g:loaded_matchparen = 0
-let g:loaded_2html_plugin = 1
-let g:loaded_logiPat = 1
-let g:loaded_rrhelper = 1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrwSettings = 1
-let g:loaded_netrwFileHandlers = 1
+let g:loaded_gzip=1                              " disable built-in plugins
+let g:loaded_tar=1
+let g:loaded_tarPlugin=1
+let g:loaded_zip=1
+let g:loaded_zipPlugin=1
+let g:loaded_getscript=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_vimball=1
+let g:loaded_vimballPlugin=1
+let g:loaded_matchit=0
+let g:loaded_matchparen=0
+let g:loaded_2html_plugin=1
+let g:loaded_logiPat=1
+let g:loaded_rrhelper=1
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
+let g:loaded_netrwSettings=1
+let g:loaded_netrwFileHandlers=1
 set nocompatible                                   " Do not allow compatible with vi
 set number                                         " show row number
 set relativenumber                                 " show relative number
@@ -66,13 +66,13 @@ set wildmenu
 set wildmode=longest:list,full                     " completion menu of command
 set splitright                                     " split window always on right
 set splitbelow                                     " split window always on bottom
-set sidescroll = 1
+set sidescroll=1
 set completeopt=menuone,noinsert,noselect,preview  " complete options
 set previewpopup=height:12,width:60                " set width and height of menu
 set pumwidth=10                                    " width of Pmenu
 set pumheight=15                                   " height of Pmenu
-let mapleader = " "                                " use space as leader key
-let maplocalleader = ","                           " use comma as local leader key
+let mapleader=" "                                  " use space as leader key
+let maplocalleader=","                             " use comma as local leader key
 inoremap jk <Esc>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -275,8 +275,8 @@ let g:vista_executive_for = {
       \ }
 
 " which-key
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
@@ -286,8 +286,8 @@ tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
 
 " coc.nvim
 " @Dependency: nodejs, npm
-" let g:coc_config_home = "~/.vim/misc/"
-" let g:coc_data_home = "~/.vim/coc"
+" let g:coc_config_home="~/.vim/misc/"
+" let g:coc_data_home="~/.vim/coc"
 " let g:coc_global_extensions = [
 "       \ 'coc-clangd',
 "       \ ]
