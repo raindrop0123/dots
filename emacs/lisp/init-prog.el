@@ -20,6 +20,7 @@
   (setq lua-indent-nested-block-content-align nil)
   (setq lua-indent-close-paren-align nil))
 
+(require-package 'rainbow-mode)
 (require-package 'yaml-mode)
 (require-package 'json-mode)
 (require-package 'csv-mode)
