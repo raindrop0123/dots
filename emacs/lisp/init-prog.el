@@ -14,5 +14,15 @@
 (require-package 'lsp-mode)
 (require-package 'lsp-ui)
 
+(require-package 'lua-mode)
+(with-eval-after-load 'lua-mode
+  (setq lua-indent-level 2)
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil))
+
+(require-package 'yaml-mode)
+(require-package 'json-mode)
+(require-package 'csv-mode)
+
 (provide 'init-prog)
 ;;; init-prog.el ends here
