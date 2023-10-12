@@ -29,11 +29,11 @@ theme.border_marked = '#ff0000'
 
 ---- Taglist
 theme.taglist_font = 'sans bold 10'
-theme.taglist_bg_focus = '#222222'
+theme.taglist_bg_focus = '#535d6c'
 theme.taglist_bg_occupied = '#222222'
 theme.taglist_bg_empty = '#222222'
 theme.taglist_fg_focus = '#ffffff'
-theme.taglist_fg_occupied = '#535d6c'
+theme.taglist_fg_occupied = '#ffffff'
 theme.taglist_fg_empty = '#222222'
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(5), '#ffffff')
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(5), '#ffffff')
@@ -73,11 +73,11 @@ theme.awesome_icon = theme_assets.awesome_icon(dpi(30), '#535d6c', '#ffffff')
 ---- Menu
 theme.menu_font = 'sans bold 10'
 theme.menu_bg_normal = '#222222'
-theme.menu_bg_focus = '#808080'
+theme.menu_bg_focus = '#535d6c'
 theme.menu_fg_normal = '#ffffff'
 theme.menu_fg_focus = '#ffffff'
 theme.menu_border_color = '#222222'
-theme.menu_border_width = dpi(1)
+theme.menu_border_width = dpi(0)
 theme.menu_submenu_icon = themes_path..'default/submenu.png'
 theme.menu_height = dpi(30)
 theme.menu_width = dpi(180)
@@ -90,7 +90,7 @@ theme.wallpaper = nil
 theme.titlebar_bg_focus = '#222222'
 theme.titlebar_bg_normal = '#222222'
 theme.titlebar_fg_focus = '#ffffff'
-theme.titlebar_fg_normal = '#222222'
+theme.titlebar_fg_normal = '#535d6c'
 theme.titlebar_close_button_normal = themes_path..'default/titlebar/close_normal.png'
 theme.titlebar_close_button_focus = themes_path..'default/titlebar/close_focus.png'
 theme.titlebar_minimize_button_normal = themes_path..'default/titlebar/minimize_normal.png'
