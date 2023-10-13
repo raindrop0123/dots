@@ -14,7 +14,7 @@ config.color_scheme = 'Catppuccin Mocha'
 
 -- Font
 config.font_size = 12.0
-config.font = wezterm.font('Noto Sans Mono', { italic = false })
+config.font = wezterm.font('Hack Nerd Font', { italic = false })
 
 -- Do not show confirm message when closing window
 config.window_close_confirmation = 'AlwaysPrompt'
