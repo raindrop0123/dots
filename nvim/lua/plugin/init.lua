@@ -101,12 +101,7 @@ return
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
       { 'nvim-telescope/telescope-project.nvim' },
-      {
-        'nvim-telescope/telescope-frecency.nvim',
-        dependencies = {
-          { 'kkharji/sqlite.lua' },
-        }
-      },
+      { 'nvim-telescope/telescope-frecency.nvim' },
       { 'nvim-telescope/telescope-live-grep-args.nvim' },
     },
     config = require('plugin.config.telescope'),
