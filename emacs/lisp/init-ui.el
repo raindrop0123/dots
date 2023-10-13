@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(require-package 'beacon)
+(add-hook 'after-init-hook 'beacon-mode)
+
 (require-package 'cnfonts)
 (add-hook 'after-init-hook 'cnfonts-mode)
 (with-eval-after-load 'cnfonts
