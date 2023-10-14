@@ -1,8 +1,8 @@
 * Path of Configuration Files
 
-+ settings.json
++ =settings.json=
 
-+ keybindings.json
++ =keybindings.json=
 
 + Path:
   + Linux: =~/.config/Code/User/=
