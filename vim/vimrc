@@ -1,14 +1,5 @@
-" GUI
-set guifont=Noto\ Sans\ Mono\ Medium\ 13
-set guioptions-=m
-set guioptions-=T
-set guioptions-=L
-set guioptions-=r
-set guioptions-=b
-" set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h14 " set fonts in macvim
-
-" Core
-let g:loaded_gzip=1                              " disable built-in plugins
+"""Basic"""
+let g:loaded_gzip=1                                " disable built-in plugins
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
 let g:loaded_zip=1
@@ -33,11 +24,11 @@ set colorcolumn=80                                 " show wrap line
 set clipboard^=unnamed,unnamedplus                 " clipboard setup
 set whichwrap=h,l,<,>,[,],~                        " wrap rule
 set background=dark                                " background
-" colorscheme retrobox                               " theme
 set cursorline                                     " highlight the line
 set cursorcolumn                                   " highlight the vertical line
 syntax on                                          " turn on syntax highlight
 filetype plugin indent on                          " set indent with specific filetype
+set backspace=indent,eol,start                     " set backspace behavior
 set showcmd                                        " show the current command
 set termguicolors                                  " enable true color support
 set t_Co=256                                       " trun on 256 color support
@@ -79,34 +70,40 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Plugin
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"""vim-plug"""
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
+nnoremap <leader>pl :PlugInstall<CR>
 
 call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'andymass/vim-matchup'
+Plug 'danilamihailov/beacon.nvim', {'on': []}
 Plug 'catppuccin/vim', {'on': []}
-Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'dyng/ctrlsf.vim', {'on': []}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
-Plug 'ryanoasis/vim-devicons', {'on': ['NERDTreeToggle']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
-Plug 'tpope/vim-fugitive', {'on': ['G', 'Git']}
-Plug 'airblade/vim-gitgutter', {'on': ['GitGutterEnable', 'GitGutterToggle']}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
 call plug#end()
 
-" catppuccin
+"beacon.nvim"
+augroup load_beacon
+  autocmd!
+  autocmd InsertEnter * call plug#load('beacon.nvim')
+        \| autocmd! load_beacon
+augroup END
+
+"catppuccin"
 augroup load_catppuccin
   autocmd!
   autocmd InsertEnter * call plug#load('vim')
@@ -115,13 +112,11 @@ augroup load_catppuccin
         \| highlight Normal guibg=#11111b
         \| highlight Comment guifg=#7f849c
         \| highlight CursorLineNr guifg=#a6e3a1
-        \| highlight Pmenu guifg=#cdd6f4 guibg=#1e1e2e
-        \| highlight PmenuSel guifg=#1e1e2e guibg=#f38ba8
-        \| highlight PmenuSBar guibg=#1e1e2e
-        \| highlight PmenuThumb guifg=#6c7086
+        \| highlight Pmenu guifg=#cdd6f4
+        \| highlight PmenuSel guibg=#a6e3a1 guifg=#11111b
 augroup END
 
-" lightline.vim
+"lightline.vim"
 augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
@@ -130,21 +125,14 @@ augroup load_lightline
         \| call lightline#enable()
 augroup END
 
-" vim-highlightedyank
-augroup load_highlightedyank
-  autocmd!
-  autocmd InsertEnter * call plug#load('vim-highlightedyank')
-        \| autocmd! load_highlightedyank
-augroup END
-
-" delimitMate
+"delimitMate"
 augroup load_delimitmate
   autocmd!
   autocmd InsertEnter * call plug#load('delimitMate')
         \| autocmd! load_delimitmate
 augroup END
 
-" rainbow
+"rainbow"
 augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
@@ -153,7 +141,7 @@ augroup load_rainbow
         \| call rainbow_main#toggle()
 augroup END
 
-" indentLine
+"indentLine"
 augroup load_indentline
   autocmd!
   autocmd InsertEnter * call plug#load('indentLine')
@@ -163,16 +151,41 @@ augroup load_indentline
         \| IndentLinesToggle
 augroup END
 
-" NERDTree
+"vim-gitgutter"
+augroup load_gitgutter
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-gitgutter')
+        \| autocmd! load_gitgutter
+        \| call gitgutter#enable()
+augroup END
+
+"ctrlsf.vim"
+augroup load_ctrlsf
+  autocmd!
+  autocmd CmdlineEnter * call plug#load('ctrlsf.vim')
+        \| autocmd! load_ctrlsf
+augroup END
+
+"NERDTree"
 let NERDTreeShowHidden = 1
 nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
 
-" vim-easymotion
+"vim-easymotion"
 let g:EasyMotion_do_mapping = 0
 nnoremap <leader>W <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-bd-jk)
 
-" FZF
+"which-key"
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+"vim-floaterm"
+nnoremap <silent> <leader>tf <Cmd>FloatermToggle<CR>
+tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
+
+"FZF"
 let g:fzf_layout = {'down': '30%'}
 nnoremap <leader>fb <Cmd>Buffers<CR>
 nnoremap <leader>ff <Cmd>Files ~/<CR>
@@ -181,18 +194,7 @@ nnoremap <leader>fs <Cmd>Lines<CR>
 nnoremap <leader>fS <Cmd>BLines<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
 
-" which-key
-let g:mapleader="\<Space>"
-let g:maplocalleader=','
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
-
-" vim-floaterm
-nnoremap <silent> <leader>tf <Cmd>FloatermToggle<CR>
-tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
-
-" coc.nvim
-" @Dependency: nodejs, npm
+"coc.nvim"
 " let g:coc_config_home="~/.vim/config/"
 " let g:coc_data_home="~/.vim/coc"
 " let g:coc_global_extensions = [
