@@ -25,6 +25,10 @@
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(require-package 'exec-path-from-shell)
+(when (eq window-system 'ns)
+  (run-with-idle-timer 2 nil 'exec-path-from-shell-initialize))
+
 (require-package 'avy)
 (require-package 'undo-tree)
 (require-package 'sudo-edit)
