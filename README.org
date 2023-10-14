@@ -1,0 +1,29 @@
+* Dotfiles
+
+** WM
+
+*** AwesomeWM
+
+*** Qtile
+
+** Editor
+
+*** Emacs
+
+*** NeoVim
+
+*** Vim
+
+*** Visual Studio Code
+
+** Terminal Emulator
+
+*** alacritty
+
+*** kitty
+
+*** wezterm
+
+*** urxvt
+
+  + Xresources
