@@ -6,7 +6,7 @@
 
 + Path:
   + Linux: =~/.config/Code/User/=
-  + MacOS: =~/Application Support/Code/User/=
+  + MacOS: =~/Library/Application Support/Code/User/=
   + Windows: =%AppData%\Code\User=
 
 + Reference:
