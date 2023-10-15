@@ -1,4 +1,5 @@
 {
+    "workbench.colorTheme": "Solarized Dark",
     "editor.tabSize": 2,
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "none",
@@ -59,5 +60,5 @@
             "commands": ["actions.find"]
         },
     ],
-    "vim.visualModeKeyBindingsNonRecursive": []
+    "vim.visualModeKeyBindingsNonRecursive": [],
 }
