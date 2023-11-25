@@ -1,0 +1,121 @@
+""" Basic
+let g:loaded_gzip=1
+let g:loaded_tar=1
+let g:loaded_tarPlugin=1
+let g:loaded_zip=1
+let g:loaded_zipPlugin=1
+let g:loaded_getscript=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_vimball=1
+let g:loaded_vimballPlugin=1
+let g:loaded_matchit=0
+let g:loaded_matchparen=0
+let g:loaded_2html_plugin=1
+let g:loaded_logiPat=1
+let g:loaded_rrhelper=1
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
+let g:loaded_netrwSettings=1
+let g:loaded_netrwFileHandlers=1
+colorscheme ron
+set number
+set relativenumber
+set colorcolumn=80
+set clipboard^=unnamed,unnamedplus
+set whichwrap=h,l,<,>,[,],~
+set background=dark
+set cursorline
+set cursorcolumn
+syntax on
+filetype plugin indent on
+set backspace=indent,eol,start
+set showcmd
+set autoindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set nowrap
+set scrolloff=2
+set laststatus=2
+set showtabline=2
+set ruler
+set noshowmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set nobackup
+set noswapfile
+set noundofile
+set visualbell
+set autoread
+set wildmenu
+set wildmode=longest:list,full
+set splitright
+set splitbelow
+set sidescroll=1
+
+""" Mapping
+let mapleader=" "
+let maplocalleader=","
+inoremap jk <Esc>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+""" vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+nnoremap <leader>pl :PlugInstall<CR>
+
+call plug#begin("~/.vim/plugged")
+  Plug 'tpope/vim-commentary'
+  Plug 'andymass/vim-matchup'
+  Plug 'itchyny/lightline.vim', {'on': []}
+  Plug 'raimondi/delimitMate', {'on': []}
+  Plug 'luochen1990/rainbow', {'on': []}
+  Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
+  Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
+  Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+call plug#end()
+
+""" lightline.vim
+augroup load_lightline
+  autocmd!
+  autocmd InsertEnter * call plug#load('lightline.vim')
+        \| autocmd! load_lightline
+        \| call lightline#enable()
+augroup END
+
+""" delimitMate
+augroup load_delimitmate
+  autocmd!
+  autocmd InsertEnter * call plug#load('delimitMate')
+        \| autocmd! load_delimitmate
+augroup END
+
+""" rainbow
+augroup load_rainbow
+  autocmd!
+  autocmd InsertEnter * call plug#load('rainbow')
+        \| autocmd! load_rainbow
+        \| call rainbow_main#toggle()
+augroup END
+
+""" NERDTree
+let NERDTreeShowHidden = 1
+nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
+
+""" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+nnoremap <leader>W <Plug>(easymotion-bd-w)
+nnoremap <leader>L <Plug>(easymotion-bd-jk)
+
+""" which-key
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
