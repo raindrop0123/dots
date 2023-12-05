@@ -17,6 +17,7 @@ let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
 let g:loaded_netrwSettings=1
 let g:loaded_netrwFileHandlers=1
+set termguicolors
 set belloff=all
 set number
 set relativenumber
@@ -72,27 +73,27 @@ endif
 nnoremap <leader>pl :PlugInstall<CR>
 
 call plug#begin("~/.vim/plugged")
-  Plug 'tpope/vim-commentary'
-  Plug 'andymass/vim-matchup'
-  Plug 'Yggdroot/indentLine', {'on': []}
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
-  Plug 'junegunn/seoul256.vim', {'on': []}
-  Plug 'itchyny/lightline.vim', {'on': []}
-  Plug 'raimondi/delimitMate', {'on': []}
-  Plug 'luochen1990/rainbow', {'on': []}
-  Plug 'dyng/ctrlsf.vim', {'on': []}
-  Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
-  Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
-  Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+Plug 'tpope/vim-commentary'
+Plug 'andymass/vim-matchup'
+Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
+Plug 'chriskempson/base16-vim', {'on': []}
+Plug 'itchyny/lightline.vim', {'on': []}
+Plug 'raimondi/delimitMate', {'on': []}
+Plug 'luochen1990/rainbow', {'on': []}
+Plug 'dyng/ctrlsf.vim', {'on': []}
+Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
+Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
+Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 call plug#end()
 
-""" seoul256.vim
-augroup load_seoul256
+""" base16-vim
+augroup load_base16
   autocmd!
-  autocmd InsertEnter * call plug#load('seoul256.vim')
-        \| autocmd! load_seoul256
-        \| colorscheme seoul256
+  autocmd InsertEnter * call plug#load('base16-vim')
+        \| autocmd! load_base16
+        \| colorscheme base16-default-dark
 augroup END
 
 """ lightline.vim
@@ -100,7 +101,7 @@ augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'seoul256'}
+        \| let g:lightline = {'colorscheme': 'deus'}
         \| call lightline#enable()
 augroup END
 
