@@ -3,7 +3,10 @@
 ;;; Code:
 
 (require-package 'base16-theme)
-(add-hook 'after-init-hook (lambda () (load-theme 'base16-default-dark t)))
+(add-hook 'after-init-hook 
+          (lambda () 
+            (setq base16-theme-256-color-source 'base16-shell)
+            (load-theme 'base16-default-dark t)))
 
 (require-package 'which-key)
 (add-hook 'after-init-hook 'which-key-mode)
@@ -21,6 +24,9 @@
 
 (require-package 'gcmh)
 (add-hook 'after-init-hook 'gcmh-mode)
+
+(require-package 'xclip)
+(add-hook 'after-init-hook 'xclip-mode)
 
 (require-package 'esup)
 (require-package 'sudo-edit)
