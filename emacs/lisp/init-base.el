@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;; faces.el
 (cond ((eq window-system 'pgtk)
        (set-face-attribute 'default nil :height 140 :family "WenQuanYi Micro Hei Mono"))
       (t
