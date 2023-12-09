@@ -16,7 +16,7 @@ if wezterm.config_builder then
 end
 
 -- Theme
-config.color_scheme = 'Tomorrow Night Bright'
+-- config.color_scheme = 'Tomorrow Night Bright'
 
 -- Font
 config.font_size = 13.0
