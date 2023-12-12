@@ -80,7 +80,7 @@ Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'joshdick/onedark.vim', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
