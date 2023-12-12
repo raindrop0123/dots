@@ -236,8 +236,8 @@ vim.g.neovide_cursor_vfx_particle_speed = 20.0
 vim.g.neovide_cursor_vfx_particle_density = 5.0
 
 -- Leader key and local leader key
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = ","
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- Load configurations
 require('core.lazy')
