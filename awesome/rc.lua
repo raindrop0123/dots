@@ -1,3 +1,5 @@
+-- @REF: https://awesomewm.org/doc/
+
 ---- Load Package
 pcall(require, 'luarocks.loader')
 local gears = require('gears')
