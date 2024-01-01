@@ -1,0 +1,19 @@
+# @REF: https://alacritty.org/config-alacritty.html
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[window]
+decorations = "Full"
+dynamic_padding = false
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Maximized"
+title = "Alacritty"
+option_as_alt = "OnlyLeft" # macOS only
+
+[font]
+size = 13
+normal = { family = "RobotoMono Nerd Font", style = "Regular" }
+bold = { family = "RobotoMono Nerd Font", style = "Regular" }
