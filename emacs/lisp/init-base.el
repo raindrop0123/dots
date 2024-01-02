@@ -77,9 +77,6 @@
 ;; ibuffer.el
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; modus-themes.el
-(add-hook 'after-init-hook (lambda () (load-theme 'modus-vivendi t)))
-
 ;; flymake.el
 (add-hook 'prog-mode-hook 'flymake-mode)
 
