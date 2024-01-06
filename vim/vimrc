@@ -1,4 +1,4 @@
-""" Basic
+" Basic
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -57,7 +57,7 @@ set splitright
 set splitbelow
 set sidescroll=1
 
-""" Mapping
+" Mapping
 let mapleader=" "
 let maplocalleader=","
 inoremap jk <Esc>
@@ -66,7 +66,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-""" vim-plug
+" vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -82,7 +82,7 @@ Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
-Plug 'joshdick/onedark.vim', {'on': []}
+Plug 'morhetz/gruvbox', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
@@ -93,15 +93,15 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(eas
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 call plug#end()
 
-""" onedark.vim
-augroup load_onedark
+" gruvbox
+augroup load_gruvbox
   autocmd!
-  autocmd InsertEnter * call plug#load('onedark.vim')
-        \| autocmd! load_onedark
-        \| colorscheme onedark
+  autocmd InsertEnter * call plug#load('gruvbox')
+        \| autocmd! load_gruvbox
+        \| colorscheme gruvbox
 augroup END
 
-""" vim-gitgutter
+" vim-gitgutter
 augroup load_gitgutter
   autocmd!
   autocmd InsertEnter * call plug#load('vim-gitgutter')
@@ -109,29 +109,29 @@ augroup load_gitgutter
         \| call gitgutter#enable()
 augroup END
 
-""" vim-polyglot
+" vim-polyglot
 augroup load_polyglot
   autocmd!
   autocmd InsertEnter * call plug#load('vim-polyglot')
 augroup END
 
-""" lightline.vim
+" lightline.vim
 augroup load_lightline
   autocmd!
   autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'one'}
+        \| let g:lightline = {'colorscheme': 'apprentice'}
         \| call lightline#enable()
 augroup END
 
-""" delimitMate
+" delimitMate
 augroup load_delimitmate
   autocmd!
   autocmd InsertEnter * call plug#load('delimitMate')
         \| autocmd! load_delimitmate
 augroup END
 
-""" rainbow
+" rainbow
 augroup load_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
@@ -139,22 +139,22 @@ augroup load_rainbow
         \| call rainbow_main#toggle()
 augroup END
 
-""" NERDTree
+" NERDTree
 let NERDTreeShowHidden = 1
 nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
 
-""" vim-easymotion
+" vim-easymotion
 let g:EasyMotion_do_mapping = 0
 nnoremap <leader>W <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-bd-jk)
 
-""" which-key
+" which-key
 let g:mapleader="\<Space>"
 let g:maplocalleader=','
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
-""" fzf.vim
+" fzf.vim
 let g:fzf_layout = {'down': '40%'}
 nnoremap <leader>fb <Cmd>Buffers<CR>
 nnoremap <leader>ff <Cmd>Files ~/<CR>
@@ -163,14 +163,14 @@ nnoremap <leader>fs <Cmd>Lines<CR>
 nnoremap <leader>fS <Cmd>BLines<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
 
-""" ctrlsf.vim
+" ctrlsf.vim
 augroup load_ctrlsf
   autocmd!
   autocmd CmdlineEnter * call plug#load('ctrlsf.vim')
         \| autocmd! load_ctrlsf
 augroup END
 
-""" indentLine
+" indentLine
 augroup load_indentline
   autocmd!
   autocmd InsertEnter * call plug#load('indentLine')
@@ -180,6 +180,6 @@ augroup load_indentline
         \| IndentLinesToggle
 augroup END
 
-""" vim-floaterm
+" vim-floaterm
 nnoremap <silent> <leader>tf <Cmd>FloatermToggle<CR>
 tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
