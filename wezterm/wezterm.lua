@@ -21,7 +21,7 @@ end
 config.color_scheme = 'Default Dark (base16)'
 
 -- Font
-config.font_size = 13.0
+config.font_size = 14.0
 config.font = wezterm.font('Hack Nerd Font', { italic = false })
 
 -- Do not show confirm message when closing window
