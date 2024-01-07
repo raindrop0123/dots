@@ -14,6 +14,6 @@ title = "Alacritty"
 option_as_alt = "OnlyLeft" # macOS only
 
 [font]
-size = 13
+size = 12
 normal = { family = "Hack Nerd Font", style = "Regular" }
 bold = { family = "Hack Nerd Font", style = "Regular" }
