@@ -29,6 +29,9 @@
       (package-refresh-contents))
     (package-install package)))
 
+;; modus-themes.el
+(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
+
 ;; simple.el
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
