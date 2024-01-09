@@ -4,7 +4,7 @@ let g:loaded_tar=1
 let g:loaded_tarPlugin=1
 let g:loaded_zip=1
 let g:loaded_zipPlugin=1
-let g:loaded_getscript=1
+let g:loaded_getscript=1 
 let g:loaded_getscriptPlugin=1
 let g:loaded_vimball=1
 let g:loaded_vimballPlugin=1
@@ -79,7 +79,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
-Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle', 'FloatermNew']}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'jnurmine/Zenburn', {'on': []}
@@ -91,6 +91,8 @@ Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
 Plug 'ryanoasis/vim-devicons', {'on': ['NERDTreeToggle']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+Plug 'chrisbra/Colorizer', {'on': []}
+Plug 'lambdalisue/suda.vim', {'on': ['SudaRead', 'SudaWrite']}
 call plug#end()
 
 " Zenburn
@@ -99,6 +101,7 @@ augroup load_zenburn
   autocmd InsertEnter * call plug#load('Zenburn')
         \| autocmd! load_zenburn
         \| colorscheme zenburn
+        \| highlight Normal guibg=#2a2a2a
 augroup END
 
 " vim-gitgutter
@@ -113,6 +116,14 @@ augroup END
 augroup load_polyglot
   autocmd!
   autocmd InsertEnter * call plug#load('vim-polyglot')
+augroup END
+
+" Colorizer
+augroup load_colorizer
+  autocmd!
+  autocmd InsertEnter * call plug#load('Colorizer')
+        \| autocmd! load_colorizer
+        \| call Colorizer#ColorToggle()
 augroup END
 
 " lightline.vim
@@ -145,8 +156,8 @@ nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
 
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
-nnoremap <leader>W <Plug>(easymotion-bd-w)
-nnoremap <leader>L <Plug>(easymotion-bd-jk)
+nnoremap <leader>w <Plug>(easymotion-bd-w)
+nnoremap <leader>l <Plug>(easymotion-bd-jk)
 
 " which-key
 let g:mapleader="\<Space>"
@@ -181,5 +192,5 @@ augroup load_indentline
 augroup END
 
 " vim-floaterm
-nnoremap <silent> <leader>tf <Cmd>FloatermToggle<CR>
+nnoremap <silent> <leader>tf <Cmd>FloatermNew --width=0.8 --height=0.8<CR>
 tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
