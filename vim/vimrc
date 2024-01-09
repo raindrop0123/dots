@@ -79,7 +79,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
-Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle', 'FloatermNew']}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'jnurmine/Zenburn', {'on': []}
@@ -89,6 +88,7 @@ Plug 'luochen1990/rainbow', {'on': []}
 Plug 'dyng/ctrlsf.vim', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
 Plug 'junegunn/limelight.vim', {'on': ['Limelight']}
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle', 'FloatermNew']}
 Plug 'tpope/vim-fugitive', {'on': ['G']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
 Plug 'ryanoasis/vim-devicons', {'on': ['NERDTreeToggle']}
