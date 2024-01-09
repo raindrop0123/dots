@@ -154,7 +154,7 @@ augroup END
 
 " NERDTree
 let NERDTreeShowHidden = 1
-nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
+nnoremap <C-n> <Cmd>NERDTreeToggle<CR>
 
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
