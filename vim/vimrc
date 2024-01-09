@@ -82,7 +82,7 @@ Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle']}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
-Plug 'morhetz/gruvbox', {'on': []}
+Plug 'jnurmine/Zenburn', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
@@ -93,12 +93,12 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(eas
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 call plug#end()
 
-" gruvbox
-augroup load_gruvbox
+" Zenburn
+augroup load_zenburn
   autocmd!
-  autocmd InsertEnter * call plug#load('gruvbox')
-        \| autocmd! load_gruvbox
-        \| colorscheme gruvbox
+  autocmd InsertEnter * call plug#load('Zenburn')
+        \| autocmd! load_zenburn
+        \| colorscheme zenburn
 augroup END
 
 " vim-gitgutter
