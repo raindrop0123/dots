@@ -3,8 +3,7 @@
 ;;; Code:
 
 (require-package 'zenburn-theme)
-(add-hook 'after-init-hook
-          #'(lambda () (load-theme 'zenburn t)))
+(add-hook 'after-init-hook #'(lambda () (load-theme 'zenburn t)))
 
 (require-package 'which-key)
 (add-hook 'after-init-hook #'which-key-mode)
