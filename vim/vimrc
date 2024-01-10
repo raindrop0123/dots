@@ -76,6 +76,7 @@ call plug#begin("~/.vim/plugged")
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'rhysd/clever-f.vim'
+Plug 'gelguy/wilder.nvim', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
@@ -98,6 +99,23 @@ Plug 'lambdalisue/suda.vim', {'on': ['SudaRead', 'SudaWrite']}
 Plug 'puremourning/vimspector', {'on': ['<Plug>VimspectorBreakpoints', '<Plug>VimspectorToggleBreakpoint']}
 Plug 'dense-analysis/ale', {'on': []}
 call plug#end()
+
+" wilder.nvim
+augroup load_wilder
+  autocmd!
+  autocmd CmdlineEnter * call plug#load('wilder.nvim')
+        \| autocmd! load_wilder
+        \| call wilder#setup({
+        \ 'modes': [':', '/', '?'],
+        \ 'enable_cmdline_enter': 0,
+        \ })
+        \| call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+        \ 'highlights': {
+        \   'border': 'Normal',
+        \ },
+        \ 'border': 'rounded',
+        \ })))
+augroup END
 
 " ale
 let g:ale_sign_error = '✗'
