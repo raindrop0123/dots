@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; C source code
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+
 ;; package.el
 (package-initialize)
 (setq package-quickstart t)
