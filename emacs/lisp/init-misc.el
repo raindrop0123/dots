@@ -6,7 +6,6 @@
 (add-hook 'after-init-hook
           #'(lambda ()
               (load-theme 'zenburn t)
-              (custom-set-faces '(default ((t (:background "#2a2a2a")))))
               (custom-set-faces '(fringe ((t (:background "#2a2a2a")))))
               (custom-set-faces '(line-number ((t (:background "#2a2a2a")))))
               ))
