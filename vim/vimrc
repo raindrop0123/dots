@@ -81,7 +81,7 @@ Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
-Plug 'jnurmine/Zenburn', {'on': []}
+Plug 'morhetz/gruvbox', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
@@ -95,15 +95,26 @@ Plug 'ryanoasis/vim-devicons', {'on': ['NERDTreeToggle']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-w)', '<Plug>(easymotion-bd-jk)']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'lambdalisue/suda.vim', {'on': ['SudaRead', 'SudaWrite']}
+Plug 'puremourning/vimspector', {'on': ['<Plug>VimspectorBreakpoints', '<Plug>VimspectorToggleBreakpoint']}
+Plug 'dense-analysis/ale', {'on': []}
 call plug#end()
 
-" Zenburn
-augroup load_zenburn
+" ale
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
+let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+augroup load_ale
   autocmd!
-  autocmd InsertEnter * call plug#load('Zenburn')
-        \| autocmd! load_zenburn
-        \| colorscheme zenburn
-        \| highlight Normal guibg=#2a2a2a
+  autocmd InsertEnter * call plug#load('ale')
+        \| autocmd! load_ale
+augroup END
+
+" gruvbox
+augroup load_gruvbox
+  autocmd!
+  autocmd InsertEnter * call plug#load('gruvbox')
+        \| autocmd! load_gruvbox
+        \| colorscheme gruvbox
 augroup END
 
 " vim-gitgutter
