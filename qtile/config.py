@@ -1,13 +1,13 @@
 # @REF: https://docs.qtile.org/en/stable/
 
-# [[[ IMPORT PACKAGES ]]]
+# Import Packages
 import os
 import subprocess
 from libqtile import bar, layout, widget, hook, extension, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
-# [[[ KEYBINDINGS ]]]
+# Keybindings
 mod = 'mod4'
 keys = [
     Key([mod], 'Return', lazy.spawn('alacritty')),
@@ -33,7 +33,7 @@ keys = [
     Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl s 5%-')),
 ]
 
-# [[[ GROUP ]]]
+# Groups
 groups = [Group(i) for i in '1234567890']
 for i in groups:
     keys.extend([
@@ -41,7 +41,7 @@ for i in groups:
         Key([mod, 'shift'], i.name, lazy.window.togroup(i.name, switch_group=True))
     ])
 
-# [[[ LAYOUT ]]]
+# Layout
 layouts = [
     layout.MonadTall(),
     # layout.Columns(),
@@ -57,7 +57,7 @@ layouts = [
     # layout.Zoomy(),
         ]
 
-# [[[ STATUS BAR ]]]
+# Status Bar
 widget_defaults = dict(
     font='sans bold',
     fontsize=12,
@@ -103,14 +103,14 @@ screens = [
     ),
 ]
 
-# [[[ MOUSE BINDING ]]]
+# Mouse Bindings
 mouse = [
     Drag([mod], 'Button1', lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], 'Button3', lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], 'Button2', lazy.window.bring_to_front()),
 ]
 
-# [[[ MISCELLANEOUT ]]]
+# Miscellaneous
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
@@ -135,7 +135,7 @@ auto_minimize = True
 wl_input_rules = None
 wmname = 'LG3D'
 
-# [[[ AUTOSTART ]]]
+# Autostart
 @hook.subscribe.startup_once
 def start_once():
 
