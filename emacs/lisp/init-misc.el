@@ -4,11 +4,7 @@
 
 (require-package 'zenburn-theme)
 (add-hook 'after-init-hook
-          #'(lambda ()
-              (load-theme 'zenburn t)
-              (custom-set-faces '(fringe ((t (:background "#2a2a2a")))))
-              (custom-set-faces '(line-number ((t (:background "#2a2a2a")))))
-              ))
+          #'(lambda () (load-theme 'zenburn t)))
 
 (require-package 'which-key)
 (add-hook 'after-init-hook #'which-key-mode)
