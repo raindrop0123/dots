@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
 (require-package 'which-key)
 (add-hook 'after-init-hook #'which-key-mode)
 
@@ -32,9 +31,6 @@
 (global-set-key (kbd "C-h v") 'helpful-variable)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (global-set-key (kbd "C-h x") 'helpful-command)
-
-(require-package 'git-gutter)
-(add-hook 'prog-mode-hook #'global-git-gutter-mode)
 
 (require-package 'esup)
 (require-package 'sudo-edit)
