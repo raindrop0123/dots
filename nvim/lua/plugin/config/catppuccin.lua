@@ -154,13 +154,14 @@ return function()
           IblScope = { fg = colors.surface2, style = { 'bold' } },
 
           -- For nvim-cmp
-          Pmenu = { fg = colors.overlay2, bg = colors.base },
-          PmenuBorder = { fg = colors.surface1, bg = colors.base },
-          PmenuSel = { bg = colors.green, fg = colors.base },
-          CmpItemAbbr = { fg = colors.overlay2 },
+          Pmenu = { fg = colors.subtext0, bg = colors.crust },
+          PmenuBorder = { fg = colors.surface1, bg = colors.crust },
+          PmenuSel = { bg = colors.green, fg = colors.crust },
+          CmpItemAbbr = { fg = colors.subtext0 },
           CmpItemAbbrMatch = { fg = colors.blue, style = { 'bold' } },
           CmpDoc = { link = 'NormalFloat' },
-          CmpDocBorder = { fg = colors.surface1, bg = colors.base },
+          CmpDocBorder = { fg = colors.surface1, bg = colors.crust },
+
 
           -- For fidget.nvim
           FidgetTask = { bg = colors.none, fg = colors.surface2 },
