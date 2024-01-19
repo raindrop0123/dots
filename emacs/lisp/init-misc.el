@@ -24,7 +24,8 @@
 (add-hook 'after-init-hook #'xclip-mode)
 
 (require-package 'cnfonts)
-(add-hook 'emacs-startup-hook #'cnfonts-mode)
+(when (display-graphic-p)
+  (add-hook 'emacs-startup-hook #'cnfonts-mode))
 
 (require-package 'helpful)
 (global-set-key (kbd "C-h f") 'helpful-callable)
