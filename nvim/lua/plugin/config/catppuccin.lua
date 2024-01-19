@@ -132,11 +132,10 @@ return function()
       all = function(colors)
         return {
           -- For basic setup
-          Normal = { fg = colors.text, bg = colors.crust },
-          NormalFloat = { fg = colors.text, bg = colors.mantle },
-          FloatBorder = { fg = colors.surface1, bg = colors.matle },
-          CursorLineNr = { fg = colors.green, bg = colors.mantle },
-          Comment = { fg = colors.overlay0, style = { 'italic', 'bold' } },
+          NormalFloat = { bg = colors.mantle, fg = colors.text },
+          FloatBorder = { bg = colors.mantle, fg = colors.mantle, style = { 'bold' } },
+          Comment = { fg = colors.subtext1, style = { 'italic', 'bold' } },
+
           ['@keyword.function'] = { fg = colors.red, style = { 'italic', 'bold' } },
 
           -- For native lsp configs
@@ -154,14 +153,14 @@ return function()
           IblScope = { fg = colors.surface2, style = { 'bold' } },
 
           -- For nvim-cmp
-          Pmenu = { fg = colors.subtext0, bg = colors.crust },
-          PmenuBorder = { fg = colors.surface1, bg = colors.crust },
-          PmenuSel = { bg = colors.green, fg = colors.crust },
-          CmpItemAbbr = { fg = colors.subtext0 },
+          Pmenu = { bg = colors.base, fg = colors.overlay2 },
+          PmenuBorder = { bg = colors.base, fg = colors.surface1 },
+          PmenuSel = { bg = colors.green, fg = colors.base },
+          CmpItemAbbr = { fg = colors.overlay2 },
           CmpItemAbbrMatch = { fg = colors.blue, style = { 'bold' } },
           CmpDoc = { link = 'NormalFloat' },
-          CmpDocBorder = { fg = colors.surface1, bg = colors.crust },
-
+          CmpDocBorder = { bg = colors.mantle, fg = colors.mantle },
+            
           -- For bufferline.nvim
           BufferLineBufferSelected = { fg = colors.yellow, bg = colors.mantle },
           BufferLineIndicatorSelected = { fg = colors.peach },
