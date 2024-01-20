@@ -22,7 +22,7 @@ end
 
 -- Font
 config.font_size = 14.0
-config.font = wezterm.font('Hack Nerd Font', { italic = false })
+config.font = wezterm.font('FiraCode Nerd Font', { italic = false })
 
 -- Do not show confirm message when closing window
 config.window_close_confirmation = 'NeverPrompt'
