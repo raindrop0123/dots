@@ -18,7 +18,7 @@ if wezterm.config_builder then
 end
 
 -- Theme
--- config.color_scheme = 'Default Dark (base16)'
+config.color_scheme = 'Default Dark (base16)'
 
 -- Font
 config.font_size = 14.0
