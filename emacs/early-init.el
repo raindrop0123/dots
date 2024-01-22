@@ -1,0 +1,40 @@
+;;; early-init.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+(setq package-enable-at-startup nil)
+(setq-default package-quickstart nil)
+(setq-default package-archives nil)
+(setq gc-cons-percentage 0.6)
+(setq gc-cons-threshold most-positive-fixnum)
+(setq file-name-handler-alist nil)
+(setq auto-save-default nil)
+(setq auto-save-list-file-prefix nil)
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(setq initial-major-mode 'fundamental-mode)
+(setq load-prefer-newer noninteractive)
+(setq make-backup-files nil)
+(setq use-short-answers t)
+(setq inhibit-startup-message t)
+(setq create-lockfiles nil)
+(setq coding-system-for-read 'utf-8)
+(setq coding-system-for-write 'utf-8)
+(setq locale-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq frame-inhibit-implied-resize t)
+(setq inhibit-startup-screen t)
+(setq default-frame-alist
+      '((menu-bar-lines . 0)
+        (tool-bar-lines . 0)
+        (horizontal-scroll-bars)
+        (vertical-scroll-bars)
+        (fullscreen . maximized)
+        (internal-border-width . 0)
+        ;; (alpha . 0.9)
+        ;; (undecorated . t)
+        ;; (ns-transparent-titlebar . t)
+        ;; (ns-appearance . 'dark)
+        ))
+
+(provide 'early-init)
+;;; early-init.el ends here
