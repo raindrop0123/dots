@@ -2,6 +2,7 @@
 
 1. =defaults delete com.googlecode.iterm2=
 2. =rm ~/Library/Preferences/com.googlecode.iterm2.plist=
+3. =rm -rf ~/.config/iterm2=
 
 * How to setup the iterm2 settings to other mac?
 
