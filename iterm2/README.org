@@ -1,0 +1,4 @@
+** How to restore iterm2 settings?
+
+1. =defaults delete com.googlecode.iterm2=
+2. =rm ~/Library/Preferences/com.googlecode.iterm2.plist=
