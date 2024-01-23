@@ -1,9 +1,9 @@
-** How to restore iterm2 settings?
+* How to restore iterm2 settings?
 
 1. =defaults delete com.googlecode.iterm2=
 2. =rm ~/Library/Preferences/com.googlecode.iterm2.plist=
 
-** How to setup the iterm2 settings to other mac?
+* How to setup the iterm2 settings to other mac?
 
 1. Go to =Preference= -> =General= -> =Preferences= -> =Load preferences from a custom folder or URL=
 2. Paste =https://raw.githubusercontent.com/raindrop0123/dots/main/iterm2/com.googlecode.iterm2.plist=
