@@ -1,31 +1,15 @@
--- lazy.nvim
 vim.keymap.set('n', '<leader>pl', '<Cmd>Lazy<CR>', { desc = 'Lazy Panel' })
-
--- todo-comments.nvim
-vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = 'TODO Telescope' })
 vim.keymap.set('n', '<leader>pT', '<Cmd>TodoTrouble<CR>', { desc = 'TODO Telescope' })
-
--- bufferline.nvim
 vim.keymap.set('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>', { desc = 'Next Buffer' })
-
--- nvim-tree.lua
-vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', { desc = 'Nvim Tree' })
-
--- nvim-notify
-vim.keymap.set('n', '<leader>pN', '<Cmd>Notifications<CR>', { desc = 'Nvim Notify' })
-
--- toggleterm.nvim
+vim.keymap.set('n', '<leader>pn', '<Cmd>NvimTreeToggle<CR>', { desc = 'Nvim Tree' })
 vim.keymap.set('t', '<leader>tt', [[<C-\><C-n>]], { desc = 'Back to Normal in Term' })
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = 'Back to Normal in Term' })
 vim.keymap.set('n', '<leader>th', '<Cmd>ToggleTerm direction=horizontal<CR>', { desc = 'Horizontal Term' })
 vim.keymap.set('n', '<leader>tv', '<Cmd>ToggleTerm direction=vertical<CR>', { desc = 'Vertical Term' })
 vim.keymap.set('n', '<leader>tf', '<Cmd>ToggleTerm direction=float<CR>', { desc = 'Float Term' })
-
--- fzf-lua
-vim.keymap.set('n', '<leader>z', '<Cmd>FzfLua<CR>', { desc = 'fzf-Lua' })
-
--- telescope.nvim
+vim.keymap.set('n', '<leader>fz', '<Cmd>FzfLua<CR>', { desc = 'fzf-Lua' })
+vim.keymap.set('n', '<leader><leader>', '<Cmd>Telescope commands<CR>', { desc = 'Commands' })
 vim.keymap.set('n', '<C-p>', '<Cmd>Telescope<CR>', { desc = 'Telescope' })
 vim.keymap.set('n', '<leader>fs', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', { desc = 'Find Current Buffer' })
 vim.keymap.set('n', '<leader>ff', '<Cmd>Telescope file_browser<CR>', { desc = 'File Browser' })
@@ -38,13 +22,9 @@ vim.keymap.set('n', '<leader>fw', '<Cmd>Telescope live_grep<CR>', { desc = 'Live
 vim.keymap.set('n', '<leader>fW', '<Cmd>Telescope live_grep_args<CR>', { desc = 'Live Grep Args' })
 vim.keymap.set('n', '<leader>fb', '<Cmd>Telescope buffers<CR>', { desc = 'Find Buffers' })
 vim.keymap.set('n', '<leader>fn', '<Cmd>Telescope notify<CR>', { desc = 'Notifications' })
-vim.keymap.set('n', '<leader>fa', '<Cmd>Telescope aerial<CR>', { desc = 'Aerial' })
-vim.keymap.set('n', '<leader><leader>', '<Cmd>Telescope commands<CR>', { desc = 'Commands' })
-
--- mason.nvim
+vim.keymap.set('n', '<leader>fa', '<Cmd>Telescope aerial<CR>', { desc = 'Aerial' }) -- aerial.nvim
+vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = 'TODO' }) -- todo-comments.nvim
 vim.keymap.set('n', '<leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason Panel' })
-
--- lspsaga.nvim
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { desc = 'Hover Document' })
 vim.keymap.set('n', 'gd', '<Cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition' })
 vim.keymap.set('n', 'gD', '<Cmd>Lspsaga goto_definition<CR>', { desc = 'Go to Definition' })
@@ -53,10 +33,6 @@ vim.keymap.set('n', 'g[', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', { desc = 'Jum
 vim.keymap.set('n', 'g]', '<Cmd>Lspsaga diagnostic_jump_next<CR>', { desc = 'Jump to next error' })
 vim.keymap.set('n', '<leader>lo', '<Cmd>Lspsaga outline<CR>', { desc = 'Code Symbol Outline' })
 vim.keymap.set('n', '<leader>la', '<Cmd>Lspsaga code_action<CR>', { desc = 'Code Action' })
-
--- trouble.nvim
 vim.keymap.set('n', '<leader>pt', '<Cmd>TroubleToggle<CR>', { desc = 'Trouble Window Toggle' })
-
--- flash.nvim
 vim.keymap.set('n', 's', function() require("flash").jump() end, { desc = 'Flash' })
 vim.keymap.set('n', 'S', function() require("flash").remote() end, { desc = 'Flash' })
