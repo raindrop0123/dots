@@ -46,9 +46,10 @@ set cursorline
 set cursorcolumn
 
 " 超時功能檢測
-" 設為50 ms
+set timeout
+set timeoutlen=200
 set ttimeout
-set ttimeoutlen=50
+set ttimeoutlen=100
 
 " 自動縮進
 set autoindent
@@ -159,11 +160,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'rhysd/clever-f.vim'
+Plug 'Yggdroot/indentLine', {'on': []} 
+Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
-Plug 'chriskempson/base16-vim', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
@@ -175,6 +177,7 @@ Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle', 'FloatermNew']}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'lambdalisue/suda.vim', {'on': ['SudaRead', 'SudaWrite']}
+Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'tbastos/vim-lua', {'for': 'lua'}
@@ -183,12 +186,14 @@ call plug#end()
 " 根據事件、文件類型延遲加載插件
 augroup buf_read_post
   autocmd!
-  autocmd BufReadPost * call plug#load('gruvbox', 'rainbow', 'lightline.vim', 'Colorizer', 'ale', 'vim-devicons', 'base16-vim', 'vim-gitgutter')
+  autocmd BufReadPost * call plug#load('gruvbox', 'rainbow', 'lightline.vim', 
+        \'Colorizer', 'ale', 'vim-devicons', 'vim-gitgutter', 'vim-highlightedyank',
+        \'indentLine')
         \| autocmd! buf_read_post
         \| colorscheme gruvbox
-        \| call rainbow_main#toggle()
         \| let g:lightline={'colorscheme': 'apprentice'}
         \| call lightline#enable()
+        \| call rainbow_main#toggle()
         \| call Colorizer#ColorToggle()
         \| call gitgutter#enable()
 augroup END
@@ -218,9 +223,18 @@ nnoremap <leader>fS <Cmd>BLines<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
 
 " vim-floaterm
-nnoremap <silent> <leader>tf <Cmd>FloatermNew --width=0.8 --height=0.8<CR>
-tnoremap <silent> <leader>tf <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <leader>tn :FloatermNew --width=0.9 --height=0.88<CR>
+tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNew<CR>
+nnoremap <silent> <leader>tp :FloatermPrev<CR>
+tnoremap <silent> <leader>tp <C-\><C-n>:FloatermPrev<CR>
+nnoremap <silent> <leader>tn :FloatermNext<CR>
+tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNext<CR>
+nnoremap <silent> <leader>tt :FloatermToggle --width=0.9 --height=0.88<CR>
+tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
 
 " NerdTree
 let NERDTreeShowHidden=1
 nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
+
+" vista.vim
+nnoremap <leader>lo <Cmd>Vista<CR>
