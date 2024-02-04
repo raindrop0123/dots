@@ -18,6 +18,10 @@ let g:loaded_netrwFileHandlers=1
 " let g:loaded_matchit=1
 " let g:loaded_matchparen=1
 
+" 禁止鈴聲改用螢幕閃爍提醒
+set noeb
+set vb t_vb=
+
 " 不與vi兼容
 set nocompatible
 
@@ -37,6 +41,9 @@ syntax on
 
 " 插件及縮進根據文件類型開啟
 filetype plugin indent on
+
+" 遇到以下符號自動換行
+set whichwrap=h,l,<,>,[,],~
 
 " 在80行設置一條線
 set colorcolumn=80
@@ -68,6 +75,9 @@ set scrolloff=1
 set sidescroll=1
 set laststatus=2
 set showtabline=2
+
+" pmenu設定
+set pumheight=12
 
 " 顯示匹配的括號
 set showmatch
@@ -168,6 +178,7 @@ Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
+Plug 'shinchu/lightline-gruvbox.vim', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
 Plug 'raimondi/delimitMate', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
@@ -185,21 +196,30 @@ Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'tbastos/vim-lua', {'for': 'lua'}
+Plug 'prabirshrestha/asyncomplete.vim', {'on': []}
+Plug 'prabirshrestha/asyncomplete-lsp.vim', {'on': []}
+Plug 'prabirshrestha/asyncomplete-buffer.vim', {'on': []}
+Plug 'prabirshrestha/asyncomplete-file.vim', {'on': []}
+Plug 'prabirshrestha/vim-lsp', {'on': []}
+Plug 'mattn/vim-lsp-settings', {'on': []}
 call plug#end()
 
-" 根據事件、文件類型延遲加載插件
+" 延遲加載插件
 augroup buf_read_post
   autocmd!
-  autocmd BufReadPost * call plug#load('gruvbox', 'rainbow', 'lightline.vim', 
+  autocmd BufReadPost * call plug#load('gruvbox', 'lightline-gruvbox.vim', 'rainbow', 'lightline.vim', 
         \'Colorizer', 'ale', 'vim-devicons', 'vim-gitgutter', 'vim-highlightedyank',
-        \'indentLine', 'vimspector')
+        \'vimspector', 'indentLine')
         \| autocmd! buf_read_post
         \| colorscheme gruvbox
         \| call rainbow_main#load()
-        \| let g:lightline={'colorscheme': 'apprentice'}
+        \| let g:lightline={'colorscheme': 'gruvbox'}
         \| call lightline#enable()
         \| call Colorizer#ColorToggle()
         \| call gitgutter#enable()
+        \| let g:indentLine_char='c'
+        \| let g:indentLine_char_list=['|', '¦', '┆', '┊']
+        \| IndentLinesEnable
 augroup END
 
 augroup insert_enter
@@ -249,3 +269,47 @@ map <Leader>W <Plug>(easymotion-bd-w)
 
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+
+" asyncomplete.vim/asyncomplete-file.vim/asyncomplete-buffer.vim/asyncomplete-lsp.vim/vim-lsp/vim-lsp-settings
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+augroup start_lsp
+  autocmd!
+  autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-file.vim',
+        \'asyncomplete-buffer.vim', 'asyncomplete-lsp.vim', 'vim-lsp', 'vim-lsp-settings')
+        \| autocmd! start_lsp
+        \| call asyncomplete#enable_for_buffer()
+        \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({'name': 'file', 'allowlist': ['*'], 'priority': 10, 'completor': function('asyncomplete#sources#file#completor')}))
+        \| call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({'name': 'buffer', 'allowlist': ['*'], 'blocklist': ['go'], 'completor': function('asyncomplete#sources#buffer#completor'), 'config': {'max_buffer_size': 5000000}}))
+        \| call lsp#enable()
+        \| au User lsp_setup call lsp#register_server({'name': 'clangd', 'cmd': {server_info->['clangd', '-background-index']}, 'whitelist': ['c', 'cpp', 'objc', 'objcpp']})
+        \| au User lsp_setup call lsp#register_server({'name': 'pyls', 'cmd': {server_info->['pyls']}, 'whitelist': ['python']})
+augroup END
