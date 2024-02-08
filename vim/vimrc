@@ -1,4 +1,4 @@
-" 禁用內置插件
+" {{{ Disable Distributed Plugins }}}
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -18,131 +18,122 @@ let g:loaded_netrwFileHandlers=1
 " let g:loaded_matchit=1
 " let g:loaded_matchparen=1
 
-" 禁止鈴聲改用螢幕閃爍提醒
+" {{{ Disabled bell sound }}} 
 set noeb
 set vb t_vb=
 
-" 不與vi兼容
+" {{{ Do not compat with vi }}}
 set nocompatible
 
-" 終端顏色與深色背景
+" {{{ Terminal color and background }}}
 set termguicolors
 set background=dark
 
-" 使用系統剪貼板
+" {{{ Clipboard }}}
 set clipboard^=unnamed,unnamedplus
 
-" 行號與相對行號
+" {{{ Line Number }}}
 set number
 set relativenumber
 
-" 語法高亮開啟
+" {{{ Language Syntax Highlight }}}
 syntax on
 
-" 插件及縮進根據文件類型開啟
+" {{{ Turn on indent and plulgin with specific filetype }}}
 filetype plugin indent on
 
-" 遇到以下符號自動換行
+" {{{ Wrap Automatically }}}
 set whichwrap=h,l,<,>,[,],~
 
-" 在80行設置一條線
+" {{{ Show a vertical line at 80 coloumn }}}
 set colorcolumn=80
 
-" 高亮光標所在的行列
+" {{{ Highlight the current column and line }}}
 set cursorline
 set cursorcolumn
 
-" 超時功能檢測
+" {{{ Timeout }}}
 set timeout
 set timeoutlen=200
 set ttimeout
 set ttimeoutlen=100
 
-" 自動縮進
+" {{{ Indent }}}
 set autoindent
-
-" 開啟c/c++縮進優化
 set cindent
 
-" 設定1 TAB = 2 Space
+" {{{ TAB Setting }}}
 set expandtab
-set tabstop=2
 set softtabstop=2
+set tabstop=2
 set shiftwidth=2
 
-" UI
+" {{{ UI }}}
 set scrolloff=1
 set sidescroll=1
 set laststatus=2
 set showtabline=2
-
-" pmenu設定
 set pumheight=12
+set pumwidth=20
 
-" 顯示匹配的括號
+" {{{ Show matched bracket }}}
 set showmatch
 set matchtime=2
 
-" 顯示最後一行
+" {{{ Show the last line }}}
 set display=lastline
 
-" 延遲繪製以提升性能
+" {{{ Lasy Draw to Improve efficiency }}}
 set lazyredraw
 
-" 顯示光標所在的坐標
+" {{{ Show Coordinate of Cursor }}}
 set ruler
 
-" 切分視窗總是在右邊與下面
+" {{{ Split window on right and below }}}
 set splitright
 set splitbelow
 
-" 關閉自動摺行
+" {{{ Turn off auto-wrap }}}
 set nowrap
 
-" 高亮搜索內容
+" {{{ Searching }}}
 set hlsearch
-
-" 增量搜索結果
 set incsearch
-
-" 搜索忽略大小寫
 set ignorecase
-
-" 預設忽略大小寫，除非搜索的文字中含有大寫字母
 set smartcase
 
-" 禁用備份文件、交換文件、undo文件
+" {{{ Disable backup, swap, unco file }}}
 set nobackup
 set noswapfile
 set noundofile
 
-" 當文件在其他地方被編輯，vim自動重新讀取 
+" {{{ Revert file automatically }}}
 set autoread
 
-" wildmenu
+" {{{ Wild Menu }}}
 set wildmenu
 set wildmode=longest:list,full
 
-" 右下角顯示命令
+" {{{ Show Command }}}
 set showcmd
 
-" 設定Backspace模式
+" {{{ Backspace }}}
 set backspace=eol,start,indent
 
-" Leader and Local Leader
+" {{{ Leader Key }}}
 let mapleader="\<Space>"
 let maplocalleader=","
 
-" 用jk代替Esc
+" {{{ ESC Mapping }}}
 inoremap jk <Esc>
 
-" 快速切換視窗
+" {{{ Change window key }}}
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" 根據文件類型微調設定
+" {{{ Setup for specific filetype }}}
 augroup FileTypeSetup
 
   " 清除同組的歷史自動命令
@@ -159,7 +150,7 @@ augroup FileTypeSetup
 
 augroup END
 
-" 安裝插件管理器vim-plug
+" {{{ Installing Plugin Manager - vim-plug }}}
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
         \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
@@ -167,7 +158,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 nnoremap <leader>pl <Cmd>PlugInstall<CR>
 
-" 安裝插件 
+" {{{ Installing Plugins }}}
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
@@ -178,9 +169,13 @@ Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
-Plug 'shinchu/lightline-gruvbox.vim', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
-Plug 'raimondi/delimitMate', {'on': []}
+Plug 'lifepillar/vim-solarized8', {'on': []}
+Plug 'catppuccin/vim', {'on': [], 'as': 'catppuccin'}
+Plug 'dracula/vim', {'on': [], 'as': 'dracula'}
+Plug 'joshdick/onedark.vim', {'on': []}
+Plug 'chriskempson/base16-vim', {'on': []}
+Plug 'jiangmiao/auto-pairs', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'dyng/ctrlsf.vim', {'on': []}
@@ -204,14 +199,16 @@ Plug 'prabirshrestha/vim-lsp', {'on': []}
 Plug 'mattn/vim-lsp-settings', {'on': []}
 call plug#end()
 
-" 延遲加載插件
+" {{{ Lazy Loading }}}
 augroup buf_read_post
   autocmd!
-  autocmd BufReadPost * call plug#load('gruvbox', 'lightline-gruvbox.vim', 'lightline.vim', 
-        \'Colorizer', 'ale', 'vim-devicons', 'vim-gitgutter', 'vim-highlightedyank', 'vimspector', 'indentLine')
+  autocmd BufReadPost * call plug#load('gruvbox', 'lightline.vim', 
+        \'Colorizer', 'ale', 'vim-devicons', 'vim-gitgutter', 'vim-highlightedyank',
+        \'vimspector', 'indentLine', 'catppuccin', 'onedark.vim', 'vim-solarized8',
+        \'dracula', 'base16-vim')
         \| autocmd! buf_read_post
-        \| colorscheme gruvbox
-        \| let g:lightline={'colorscheme': 'gruvbox'}
+        \| colorscheme solarized8
+        \| let g:lightline={'colorscheme': 'solarized'}
         \| call lightline#enable()
         \| call Colorizer#ColorToggle()
         \| call gitgutter#enable()
@@ -222,8 +219,13 @@ augroup END
 
 augroup insert_enter
   autocmd!
-  autocmd InsertEnter * call plug#load('delimitMate', 'rainbow')
+  autocmd InsertEnter * call plug#load('auto-pairs', 'rainbow')
         \| autocmd! insert_enter
+        \| call AutoPairsTryInit()
+        \| if has_key(g:AutoPairs, '"')
+        \| let b:AutoPairs = copy(g:AutoPairs)
+        \| call remove(b:AutoPairs, '"')
+        \| endif
 augroup END
 
 augroup cmdline_enter
@@ -232,9 +234,11 @@ augroup cmdline_enter
         \| autocmd! cmdline_enter
 augroup END
 
+" {{{ UI }}}
 " rainbow
 let g:rainbow_active=1
 
+" {{{ TOOL }}}
 " vim-which-key
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
@@ -268,9 +272,11 @@ nnoremap <leader>lo <Cmd>Vista<CR>
 map <Leader>L <Plug>(easymotion-bd-jk)
 map <Leader>W <Plug>(easymotion-bd-w)
 
+" {{{ DAP }}}
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 
+" {{{ LSP }}}
 " asyncomplete.vim/asyncomplete-file.vim/asyncomplete-buffer.vim/asyncomplete-lsp.vim/vim-lsp/vim-lsp-settings
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
