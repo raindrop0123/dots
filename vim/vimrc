@@ -170,11 +170,6 @@ Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
-Plug 'lifepillar/vim-solarized8', {'on': []}
-Plug 'catppuccin/vim', {'on': [], 'as': 'catppuccin'}
-Plug 'dracula/vim', {'on': [], 'as': 'dracula'}
-Plug 'joshdick/onedark.vim', {'on': []}
-Plug 'chriskempson/base16-vim', {'on': []}
 Plug 'jiangmiao/auto-pairs', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
@@ -204,11 +199,9 @@ augroup buf_read_post
   autocmd!
   autocmd BufReadPost * call plug#load('gruvbox', 'lightline.vim', 
         \'Colorizer', 'ale', 'vim-devicons', 'vim-gitgutter', 'vim-highlightedyank',
-        \'vimspector', 'indentLine', 'catppuccin', 'onedark.vim', 'vim-solarized8',
-        \'dracula', 'base16-vim')
+        \'vimspector', 'indentLine')
         \| autocmd! buf_read_post
-        \| colorscheme solarized8
-        \| let g:lightline={'colorscheme': 'solarized'}
+        \| colorscheme gruvbox
         \| call lightline#enable()
         \| call Colorizer#ColorToggle()
         \| call gitgutter#enable()
