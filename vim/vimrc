@@ -26,7 +26,7 @@ set vb t_vb=
 set nocompatible
 
 " {{{ Terminal color and background }}}
-set termguicolors
+set notermguicolors
 set background=dark
 
 " {{{ Clipboard }}}
@@ -245,25 +245,16 @@ nnoremap <leader>fS <Cmd>BLines<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
 
 " vim-floaterm
-nnoremap <silent> <leader>tf :FloatermNew --width=0.9 --height=0.88<CR>
-tnoremap <silent> <leader>tf <C-\><C-n>:FloatermNew<CR>
-nnoremap <silent> <leader>tp :FloatermPrev<CR>
-tnoremap <silent> <leader>tp <C-\><C-n>:FloatermPrev<CR>
-nnoremap <silent> <leader>tN :FloatermNext<CR>
-tnoremap <silent> <leader>tN <C-\><C-n>:FloatermNext<CR>
-nnoremap <silent> <leader>tT :FloatermToggle<CR>
-tnoremap <silent> <leader>tT <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <F12> :FloatermToggle<CR>
+tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
 
 " NerdTree
 let NERDTreeShowHidden=1
 nnoremap <leader>tn <Cmd>NERDTreeToggle<CR>
 
-" vista.vim
-nnoremap <leader>lo <Cmd>Vista<CR>
-
 " vim-easymotion
-map <Leader>L <Plug>(easymotion-bd-jk)
-map <Leader>W <Plug>(easymotion-bd-w)
+map <Leader>gl <Plug>(easymotion-bd-jk)
+map <Leader>gw <Plug>(easymotion-bd-w)
 
 " {{{ DAP }}}
 " vimspector
@@ -304,7 +295,8 @@ augroup END
 augroup start_lsp
   autocmd!
   autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-file.vim',
-        \'asyncomplete-buffer.vim', 'asyncomplete-lsp.vim', 'vim-lsp', 'vim-lsp-settings')
+        \'asyncomplete-buffer.vim', 'asyncomplete-lsp.vim', 'vim-lsp',
+        \'vim-lsp-settings')
         \| autocmd! start_lsp
         \| call asyncomplete#enable_for_buffer()
         \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({'name': 'file', 'allowlist': ['*'], 'priority': 10, 'completor': function('asyncomplete#sources#file#completor')}))
