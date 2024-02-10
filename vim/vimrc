@@ -156,7 +156,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-nnoremap <leader>pl <Cmd>PlugInstall<CR>
+nnoremap <leader>tl <Cmd>PlugInstall<CR>
 
 " {{{ Installing Plugins }}}
 call plug#begin('~/.vim/plugged')
@@ -245,18 +245,18 @@ nnoremap <leader>fS <Cmd>BLines<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
 
 " vim-floaterm
-nnoremap <silent> <leader>tt :FloatermNew --width=0.9 --height=0.88<CR>
-tnoremap <silent> <leader>tt <C-\><C-n>:FloatermNew<CR>
+nnoremap <silent> <leader>tf :FloatermNew --width=0.9 --height=0.88<CR>
+tnoremap <silent> <leader>tf <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <leader>tp :FloatermPrev<CR>
 tnoremap <silent> <leader>tp <C-\><C-n>:FloatermPrev<CR>
-nnoremap <silent> <leader>tn :FloatermNext<CR>
-tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNext<CR>
+nnoremap <silent> <leader>tN :FloatermNext<CR>
+tnoremap <silent> <leader>tN <C-\><C-n>:FloatermNext<CR>
 nnoremap <silent> <leader>tT :FloatermToggle<CR>
 tnoremap <silent> <leader>tT <C-\><C-n>:FloatermToggle<CR>
 
 " NerdTree
 let NERDTreeShowHidden=1
-nnoremap <leader>pn <Cmd>NERDTreeToggle<CR>
+nnoremap <leader>tn <Cmd>NERDTreeToggle<CR>
 
 " vista.vim
 nnoremap <leader>lo <Cmd>Vista<CR>
