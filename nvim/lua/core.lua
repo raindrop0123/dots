@@ -143,7 +143,7 @@ vim.o.wrap = false
 vim.o.wrapscan = true
 vim.o.writebackup = false
 
--- {{{ Auto COmmand }}}
+-- {{{ Auto Command }}}
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
