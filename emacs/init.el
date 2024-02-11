@@ -7,7 +7,7 @@
 (let* ((gc-cons-threshold most-positive-fixnum)
        (gc-cons-percentage 0.6)
        (file-name-handler-alist nil))
-  (require 'init-core)
+  (require 'init-base)
   (require 'init-company)
   (require 'init-evil)
   (require 'init-misc))
