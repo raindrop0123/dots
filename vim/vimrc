@@ -261,7 +261,7 @@ augroup load_ctrlsf
         \| autocmd! load_ctrlsf
 augroup END
 
-" NerdTree
+" nerdtree
 let NERDTreeShowHidden=1
 nnoremap <leader>tn <Cmd>NERDTreeToggle<CR>
 
