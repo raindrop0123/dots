@@ -157,8 +157,8 @@ Plug 'morhetz/gruvbox', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []} 
 Plug 'machakann/vim-highlightedyank', {'on': []}
-Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'ryanoasis/vim-devicons', {'on': []}
 
 " Tool
 Plug 'easymotion/vim-easymotion'
