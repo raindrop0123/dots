@@ -179,7 +179,7 @@ Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 
-" Lang
+" Language
 Plug 'dense-analysis/ale', {'on': []}
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
 Plug 'vim-python/python-syntax', {'for': ['python']}
@@ -308,7 +308,7 @@ nnoremap <leader>fw <Cmd>Rg<CR>
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
-" {{{ Lang }}}
+" {{{ Language }}}
 augroup load_ale
   autocmd!
   autocmd InsertEnter * call plug#load('ale')
