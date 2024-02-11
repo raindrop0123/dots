@@ -37,9 +37,6 @@
 (require-package 'evil-collection)
 (run-with-idle-timer 2 nil #'evil-collection-init)
 
-(require-package 'evil-goggles)
-(add-hook 'evil-mode-hook #'evil-goggles-mode)
-
 (require-package 'evil-matchit)
 (add-hook 'evil-mode-hook #'global-evil-matchit-mode)
 
@@ -47,16 +44,6 @@
 (with-eval-after-load 'evil-maps
   (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
-
-(require-package 'evil-terminal-cursor-changer)
-(unless (display-graphic-p)
-  (add-hook 'evil-mode-hook #'evil-terminal-cursor-changer-activate))
-(with-eval-after-load 'evil-terminal-cursor-changer
-  (setq evil-motion-state-cursor 'box)
-  (setq evil-visual-state-cursor 'box)
-  (setq evil-normal-state-cursor 'box)
-  (setq evil-insert-state-cursor 'bar)
-  (setq evil-emacs-state-cursor 'hbar))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
