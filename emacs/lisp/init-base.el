@@ -1,4 +1,4 @@
-;;; init-core.el --- -*- lexical-binding: t; -*-
+;;; init-base.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -127,5 +127,5 @@
           (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
           (zig . ("https://github.com/GrayJack/tree-sitter-zig")))))
 
-(provide 'init-core)
-;;; init-core.el ends here
+(provide 'init-base)
+;;; init-base.el ends here
