@@ -1,0 +1,7 @@
+** ArchLinux Installation
+
+1. =Boot with USB=
+2. =Connect to the internet=
+3. =curl -fsSL https://raw.githubusercontent.com/raindrop0123/dots/main/install/arch.sh > arch.sh=
+4. =chmod +x arch.sh=
+5. =sh arch.sh=
