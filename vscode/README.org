@@ -15,3 +15,4 @@
   + =https://vspacecode.github.io/=
   + =https://zhuanlan.zhihu.com/p/302568011=
   + =https://github.com/VSCodeVim/Vim=
+  + =https://vspacecode.github.io/docs/default-keybindings#file=
