@@ -49,7 +49,7 @@
 (add-hook 'evil-mode-hook #'evil-goggles-mode)
 
 (require-package 'evil-visualstar)
-(add-hook 'evil-mode-hook 'global-evil-visualstar-mode)
+(add-hook 'evil-mode-hook #'global-evil-visualstar-mode)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
