@@ -77,6 +77,7 @@ set wildmenu
 set wildmode=list:longest,full
 set showcmd
 set backspace=eol,start,indent
+set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
 " {{{ Keys }}}
 let mapleader="\<Space>"
@@ -105,6 +106,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'itchyny/lightline.vim', {'on': []}
+Plug 'kien/rainbow_parentheses.vim', {'on': []}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
 Plug 'Raimondi/delimitMate', {'on': []}
@@ -122,9 +124,17 @@ augroup load_lightline
         \| call lightline#enable()
 augroup END
 
+" rainbow_parentheses.vim
+augroup load_rainbow_parentheses
+  autocmd!
+  autocmd InsertEnter * call plug#load('rainbow_parentheses.vim')
+        \| autocmd! load_rainbow_parentheses
+        \| call rainbow_parentheses#toggleall()
+augroup END
+
 " vim-easymotion
-map <Leader>gl <Plug>(easymotion-bd-jk)
-map <Leader>gw <Plug>(easymotion-bd-w)
+map <leader><leader><leader>l <Plug>(easymotion-bd-jk)
+map <leader><leader><leader>j <Plug>(easymotion-bd-w)
 
 " nerdtree
 let NERDTreeShowHidden=1
