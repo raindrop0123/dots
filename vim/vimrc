@@ -2,10 +2,10 @@
 " @REF: https://www.zhihu.com/question/26248191/answer/2575985121
 " @REF: https://github.com/junegunn/vim-plug/wiki/tips
 
-" {{{ Clipboard }}}
+""" Clipboard
 set clipboard^=unnamed,unnamedplus
 
-" {{{ Disable Distributed Plugins }}}
+""" Disable Distributed Plugins
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -25,7 +25,7 @@ let g:loaded_netrwFileHandlers=1
 let g:loaded_matchit=1
 let g:loaded_matchparen=1
 
-" {{{ Option }}}
+""" Options
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -79,7 +79,7 @@ set showcmd
 set backspace=eol,start,indent
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
-" {{{ Keys }}}
+""" Keys
 let mapleader="\<Space>"
 let maplocalleader=","
 inoremap jk <Esc>
@@ -88,7 +88,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" {{{ Colorscheme }}}
+""" Colorscheme
 set background=dark
 if v:version >= 900
   colorscheme wildcharm
@@ -96,7 +96,7 @@ else
   colorscheme desert
 endif
 
-" {{{ vim-plug }}}
+""" vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
         \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
@@ -104,18 +104,29 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'andymass/vim-matchup'
+Plug 'rhysd/clever-f.vim'
 Plug 'itchyny/lightline.vim', {'on': []}
-Plug 'kien/rainbow_parentheses.vim', {'on': []}
+Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'LunarWatcher/auto-pairs', {'on': []}
+Plug 'ryanoasis/vim-devicons', {'on': []}
+Plug 'machakann/vim-highlightedyank', {'on': []}
+Plug 'luochen1990/rainbow', {'on': []}
+Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'chrisbra/Colorizer', {'on': []}
+Plug 'dense-analysis/ale', {'on': []}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
-Plug 'Raimondi/delimitMate', {'on': []}
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Rg', 'Lines', 'BLines']}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermToggle', 'FloatermNew']}
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
+Plug 'vim-python/python-syntax', {'for': ['python']}
 call plug#end()
 
-" lightline.vim
+"lightline.vim"
 augroup load_lightline
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
@@ -124,37 +135,88 @@ augroup load_lightline
         \| call lightline#enable()
 augroup END
 
-" rainbow_parentheses.vim
-augroup load_rainbow_parentheses
+"indentLine"
+augroup load_indentline
   autocmd!
-  autocmd InsertEnter * call plug#load('rainbow_parentheses.vim')
-        \| autocmd! load_rainbow_parentheses
-        \| call rainbow_parentheses#toggleall()
+  autocmd BufReadPost * call plug#load('indentLine')
+        \| autocmd! load_indentline
+        \| let g:indentLine_char='c'
+        \| let g:indentLine_char_list=['│'] " '|', '¦', '┆', '┊'
+        \| indentLineToggle
 augroup END
 
-" vim-easymotion
+"auto-pairs"
+augroup load_autopairs
+  autocmd!
+  autocmd InsertEnter * call plug#load('auto-pairs')
+        \| autocmd! load_autopairs
+        \| call autopairs#AutoPairsTryInit()
+augroup END
+
+"vim-devicons"
+augroup load_devicons
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-devicons')
+        \| autocmd! load_devicons
+augroup END
+
+"rainbow"
+let g:rainbow_active=1
+augroup load_rainbow
+  autocmd!
+  autocmd InsertEnter * call plug#load('rainbow')
+        \| autocmd! load_rainbow
+augroup END
+
+"Colorizer"
+augroup load_colorizer
+  autocmd!
+  autocmd BufReadPost * call plug#load('Colorizer')
+        \| autocmd! load_colorizer
+        \| call Colorizer#ColorToggle()
+augroup END
+
+"vim-highlightedyank"
+augroup load_highlightedyank
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-highlightedyank')
+        \| autocmd! load_highlightedyank
+augroup END
+
+"vim-gitgutter"
+augroup load_gitgutter
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-gitgutter')
+        \| autocmd! load_gitgutter
+        \| call gitgutter#enable()
+augroup END
+
+"vim-easymotion"
 map <leader><leader><leader>l <Plug>(easymotion-bd-jk)
 map <leader><leader><leader>j <Plug>(easymotion-bd-w)
 
-" nerdtree
+"nerdtree"
 let NERDTreeShowHidden=1
 nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 
-" delimitmate
-augroup load_delimitmate
-  autocmd!
-  autocmd InsertEnter * call plug#load('delimitMate')
-        \| autocmd! load_delimitmate
-augroup END
-
-" fzf.vim
+"fzf.vim"
 nnoremap <leader>fb <Cmd>Buffers<CR>
-nnoremap <leader>ff <Cmd>Files ~/<CR>
-nnoremap <leader>fF <Cmd>Files<CR>
-nnoremap <leader>fs <Cmd>Lines<CR>
-nnoremap <leader>fS <Cmd>BLines<CR>
+nnoremap <leader>fF <Cmd>Files ~/<CR>
+nnoremap <leader>ff <Cmd>Files<CR>
 nnoremap <leader>fw <Cmd>Rg<CR>
+nnoremap <C-s> <Cmd>BLines<CR>
 
-" vim-which-key
+"vim-which-key"
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+"vim-floaterm"
+nnoremap <silent> <F12> :FloatermToggle<CR>
+tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
+
+"ale"
+augroup load_ale
+  autocmd!
+  autocmd InsertEnter * call plug#load('ale')
+        \| autocmd! load_ale
+augroup END
