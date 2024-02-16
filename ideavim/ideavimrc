@@ -1,0 +1,53 @@
+""" Options
+set number
+set relativenumber
+set whichwrap=h,l,<,>,[,],~
+set clipboard^=unnamed,unnamedplus,ideaput
+set showmode
+set scrolloff=1
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+""" Key
+let mapleader=" "
+let maplocalleader=","
+imap jk <Esc>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap ga :<C-u>action GotoAction<CR>
+nnoremap gb :<C-u>action JumpToLastChange<CR>
+nnoremap gc :<C-u>action GotoClass<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap gm :<C-u>action GotoSymbol<CR>
+nnoremap gu :<C-u>action ShowUsages<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
+nnoremap gp :<C-u>action FindInPath<CR>
+nnoremap gr :<C-u>action RecentFiles<CR>
+nnoremap gh :<C-u>action Back<CR>
+nnoremap gl :<C-u>action Forward<CR>
+
+""" Plugins
+set easymotion
+set vim-sneak
+set NERDTree
+set surround
+set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set argtextobj
+set exchange
+set textobj-entire
+set highlightedyank
+set vim-paragraph-motion
+set textobj-indent
+set matchit
+set quickscope
+set which-key
+
