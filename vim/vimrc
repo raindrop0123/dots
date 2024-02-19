@@ -117,6 +117,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'morhetz/gruvbox', {'on': []}
 Plug 'dominikduda/vim_current_word', {'on': []}
+Plug 'ap/vim-buftabline', {'on': []}
 Plug 'ntpeters/vim-better-whitespace', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
@@ -151,10 +152,17 @@ augroup load_gruvbox
         \| colorscheme gruvbox
 augroup END
 
+"vim-buftabline"
+augroup load_buftabline
+  autocmd!
+  autocmd InsertEnter * call plug#load('vim-buftabline')
+        \| autocmd! load_buftabline
+augroup END
+
 "lightline.vim"
 augroup load_lightline
   autocmd!
-  autocmd BufReadPost * call plug#load('lightline.vim')
+  autocmd InsertEnter * call plug#load('lightline.vim')
         \| autocmd! load_lightline
         \| let g:lightline = {'colorscheme': 'apprentice'}
         \| call lightline#enable()
@@ -273,8 +281,6 @@ augroup END
 "asyncomplete-buffer.vim"
 "asyncomplete-file.vim"
 "asyncomplete-lsp.vim"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 augroup load_asyncomplete
   autocmd!
