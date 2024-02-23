@@ -120,6 +120,7 @@ Plug 'dominikduda/vim_current_word', {'on': []}
 Plug 'ap/vim-buftabline', {'on': []}
 Plug 'ntpeters/vim-better-whitespace', {'on': []}
 Plug 'sheerun/vim-polyglot', {'on': []}
+Plug 'shinchu/lightline-gruvbox.vim', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'LunarWatcher/auto-pairs', {'on': []}
@@ -160,11 +161,12 @@ augroup load_buftabline
 augroup END
 
 "lightline.vim"
+"lightline-gruvbox.vim"
 augroup load_lightline
   autocmd!
-  autocmd InsertEnter * call plug#load('lightline.vim')
+  autocmd InsertEnter * call plug#load('lightline-gruvbox.vim', 'lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'apprentice'}
+        \| let g:lightline = {'colorscheme': 'gruvbox'}
         \| call lightline#enable()
 augroup END
 
