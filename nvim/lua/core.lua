@@ -248,6 +248,9 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   spec = {
     { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+    { import = 'lazyvim.plugins.extras.lsp.none-ls' },
+		{ import = 'lazyvim.plugins.extras.lang.clangd' },
+		{ import = 'lazyvim.plugins.extras.lang.python' },
     { import = 'lazyvim.plugins.extras.ui.mini-animate' },
     { import = 'plugins' },
   },
