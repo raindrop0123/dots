@@ -135,15 +135,15 @@ draw_bold_text_with_bright_colors = false  # Default
 
 # Primary colors
 [colors.primary]
-foreground = "#d4d4d4"  # Default: #d8d8d8
+foreground = "#cccccc"  # Default: #d8d8d8
 background = "#1e1e1e"  # Default: #181818
 #dim_foreground = "#828482"  # Default
 #bright_foreground = "None"  # Default
 
 # Cursor colors
 [colors.cursor]
-text = "#1d1f21"  # Default: CellBackground
-cursor = "#cccccc"  # Default: CellForeground
+text = "#1e1e1e"  # Default: CellBackground
+cursor = "#ffffff"  # Default: CellForeground
 
 # Vi mode cursor colors
 [colors.vi_mode_cursor]
