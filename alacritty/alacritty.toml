@@ -131,7 +131,7 @@ builtin_box_drawing = true  # Default: true
 transparent_background_colors = false  # Default
 
 # Draw bold text with bright colors
-draw_bold_text_with_bright_colors = false  # Default
+draw_bold_text_with_bright_colors = true  # Default: false
 
 # Primary colors
 [colors.primary]
