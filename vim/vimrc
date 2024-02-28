@@ -338,7 +338,7 @@ augroup lsp_install
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-if executable('clangd')
+if (executable('clangd') && (&ft == 'c' || &ft == 'cpp'))
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
         \ 'cmd': {server_info->['clangd', '-background-index']},
