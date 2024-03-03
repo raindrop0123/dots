@@ -2,12 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'vscode-dark-plus-theme)
-(add-hook 'after-init-hook #'(lambda () (load-theme 'vscode-dark-plus t)))
-
-(require-package 'solaire-mode)
-(run-with-idle-timer 2 nil #'solaire-global-mode)
-
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
