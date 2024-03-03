@@ -13,7 +13,7 @@
 (add-hook 'minibuffer-exit-hook #'reset-gc-limit)
 
 ;; modus-themes.el
-(add-hook 'after-init-hook '#(lambda () (load-theme 'modus-vivendi t)))
+(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
 
 ;; subr.el
 (global-unset-key (kbd "C-x C-c"))
