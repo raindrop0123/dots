@@ -114,6 +114,7 @@ Plug 'andymass/vim-matchup'
 Plug 'rhysd/clever-f.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'morhetz/gruvbox', {'on': []}
 Plug 'dominikduda/vim_current_word', {'on': []}
 Plug 'ap/vim-buftabline', {'on': []}
 Plug 'ntpeters/vim-better-whitespace', {'on': []}
@@ -142,6 +143,13 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim', {'on': []}
 Plug 'prabirshrestha/vim-lsp', {'on': []}
 Plug 'mattn/vim-lsp-settings', {'on': ['LspInstallServer']}
 call plug#end()
+
+"gruvbox"
+augroup load_gruvbox
+  autocmd!
+  autocmd BufReadPost * call plug#load('gruvbox')
+        \| colorscheme gruvbox
+augroup END
 
 "lightline.vim"
 augroup load_lightline
