@@ -40,6 +40,7 @@ filetype plugin indent on
 set whichwrap=h,l,<,>,[,],~
 set colorcolumn=80
 set cursorline
+set cursorlineopt=number
 set cursorcolumn
 set timeout
 set timeoutlen=200
@@ -85,6 +86,7 @@ set omnifunc=syntaxcomplete#Complete
 
 """ autocmd
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+autocmd BufReadPre * if getfsize(expand("%")) > 1000000 | syntax clear | endif
 
 """ Keys
 let mapleader="\<Space>"
@@ -97,11 +99,7 @@ nnoremap <C-l> <C-w>l
 
 """ Colorscheme
 set background=dark
-" if v:version >= 900
-"   colorscheme wildcharm
-" else
-"   colorscheme desert
-" endif
+colorscheme desert
 
 """ vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -116,7 +114,6 @@ Plug 'andymass/vim-matchup'
 Plug 'rhysd/clever-f.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tomasiser/vim-code-dark', {'on': []}
 Plug 'dominikduda/vim_current_word', {'on': []}
 Plug 'ap/vim-buftabline', {'on': []}
 Plug 'ntpeters/vim-better-whitespace', {'on': []}
@@ -130,6 +127,7 @@ Plug 'luochen1990/rainbow', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'chrisbra/Colorizer', {'on': []}
 Plug 'dense-analysis/ale', {'on': []}
+Plug 'wellle/context.vim', {'on': []}
 Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)']}
 Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
@@ -145,20 +143,12 @@ Plug 'prabirshrestha/vim-lsp', {'on': []}
 Plug 'mattn/vim-lsp-settings', {'on': ['LspInstallServer']}
 call plug#end()
 
-"vim-code-dark"
-augroup load_codedark
-  autocmd!
-  autocmd BufReadPost * call plug#load('vim-code-dark')
-        \| autocmd! load_codedark
-        \| colorscheme codedark
-augroup END
-
 "lightline.vim"
 augroup load_lightline
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
         \| autocmd! load_lightline
-        \| let g:lightline = {'colorscheme': 'codedark'}
+        \| let g:lightline = {'colorscheme': 'powerline'}
         \| call lightline#enable()
 augroup END
 
@@ -192,6 +182,14 @@ augroup load_autopairs
   autocmd InsertEnter * call plug#load('auto-pairs')
         \| autocmd! load_autopairs
         \| call autopairs#AutoPairsTryInit()
+augroup END
+
+"context.vim
+augroup load_context
+  autocmd!
+  autocmd BufReadPost * call plug#load('context.vim')
+        \| autocmd! load_context
+        \| call context#activate()
 augroup END
 
 "rainbow"
