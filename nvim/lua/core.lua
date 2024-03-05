@@ -1,10 +1,10 @@
--- @REF: https://github.com/ayamir/nvimdots
--- @REF: https://github.com/folke/lazy.nvim
--- @REF: https://github.com/AstroNvim/AstroNvim
--- @REF: https://github.com/LunarVim/LunarVim
--- @REF: https://github.com/LazyVim/LazyVim
+---@REF: https://github.com/ayamir/nvimdots
+---@REF: https://github.com/folke/lazy.nvim
+---@REF: https://github.com/AstroNvim/AstroNvim
+---@REF: https://github.com/LunarVim/LunarVim
+---@REF: https://github.com/LazyVim/LazyVim
 
--- {{{ Clipboard }}}
+--- Clipboard
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
     name = 'macOS-clipboard',
@@ -27,7 +27,7 @@ elseif vim.fn.has('wsl') == 1 then
   }
 end
 
--- {{{ Disable Distributed Plugins }}}
+--- Disable Distributed Plugins
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
@@ -55,7 +55,7 @@ vim.g.editorconfig = 1
 vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu = 1
 
--- {{{ Options }}}
+--- Option
 vim.o.autoindent = true
 vim.o.autoread = true
 vim.o.autowrite = true
@@ -149,7 +149,8 @@ vim.o.wrap = false
 vim.o.wrapscan = true
 vim.o.writebackup = false
 
--- {{{ autocmd }}}
+--- autocmd
+
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
@@ -157,6 +158,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank({ timeout = 500 })
   end,
 })
+
 -- Go to last loc when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('last_location', { clear = true }),
@@ -173,6 +175,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
+
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('wrap_spell', { clear = true }),
@@ -182,6 +185,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.spell = true
   end,
 })
+
 -- press 'q' to quit
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('close_with_q', { clear = true }),
@@ -205,6 +209,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
   end,
 })
+
 -- Disable auto-comment when going to the next line
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('disable_auto_comment', { clear = true }),
@@ -216,7 +221,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
--- {{{ Keys }}}
+--- Keys
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {})
@@ -227,11 +232,11 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {})
 vim.api.nvim_set_keymap('n', '<A-[>', '<Cmd>vertical resize -5<CR>', {})
 vim.api.nvim_set_keymap('n', '<A-]>', '<Cmd>vertical resize +5<CR>', {})
 
--- {{{ Colorscheme }}}
+--- Colorscheme
 vim.api.nvim_command('set background=dark')
-vim.api.nvim_command('colorscheme habamax')
+vim.api.nvim_command('colorscheme lunaperche')
 
--- {{{ lazy.nvim }}}
+--- lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
