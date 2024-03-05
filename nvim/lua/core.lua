@@ -229,7 +229,7 @@ vim.api.nvim_set_keymap('n', '<A-]>', '<Cmd>vertical resize +5<CR>', {})
 
 -- {{{ Colorscheme }}}
 vim.api.nvim_command('set background=dark')
-vim.api.nvim_command('colorscheme lunaperche')
+vim.api.nvim_command('colorscheme habamax')
 
 -- {{{ lazy.nvim }}}
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
