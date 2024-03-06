@@ -1,11 +1,7 @@
-"@REF: https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
-"@REF: https://www.zhihu.com/question/26248191/answer/2575985121
-"@REF: https://github.com/junegunn/vim-plug/wiki/tips
-
-"Clipboard"
+" Clipboard
 set clipboard^=unnamed,unnamedplus
 
-"Disable Distributed Plugins"
+" Disable Distributed Plugins
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -25,7 +21,7 @@ let g:loaded_netrwFileHandlers=1
 let g:loaded_matchit=1
 let g:loaded_matchparen=1
 
-"Options"
+"Options
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -84,11 +80,11 @@ set complete=.,w,b,u,t,i
 set completeopt=menuone,longest,preview,noselect
 set omnifunc=syntaxcomplete#Complete
 
-"autocmd"
+" autocmd
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 autocmd BufReadPre * if getfsize(expand("%")) > 1000000 | syntax clear | endif
 
-"Keys"
+" keys
 let mapleader="\<Space>"
 let maplocalleader=","
 inoremap jk <Esc>
@@ -97,11 +93,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"Colorscheme"
+" colorscheme
 set background=dark
 colorscheme zaibatsu
 
-"vim-plug"
+" vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
@@ -111,7 +107,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim', {'on': []}
 call plug#end()
 
-"lightline.vim"
+" lightline.vim
 augroup lightline
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
