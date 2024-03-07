@@ -1,4 +1,4 @@
----- Load Packages
+-- Load Packages
 local theme_assets = require('beautiful.theme_assets')
 local xresources = require('beautiful.xresources')
 local dpi = xresources.apply_dpi
@@ -6,7 +6,7 @@ local gfs = require('gears.filesystem')
 local themes_path = gfs.get_themes_dir()
 local theme = {}
 
----- General
+-- General
 theme.font = 'sans bold 10'
 theme.bg_normal = '#222222'
 theme.bg_focus = '#535d6c'
@@ -18,16 +18,16 @@ theme.fg_focus = '#ffffff'
 theme.fg_urgent = '#ffffff'
 theme.fg_minimize = '#ffffff'
 
----- Gap
+-- Gap
 theme.useless_gap = dpi(1)
 
----- Border
+-- Border
 theme.border_width = dpi(1)
 theme.border_normal = '#000000'
 theme.border_focus = '#535d6c'
 theme.border_marked = '#ff0000'
 
----- Taglist
+-- Taglist
 theme.taglist_font = 'sans bold 10'
 theme.taglist_bg_focus = '#535d6c'
 theme.taglist_bg_occupied = '#222222'
@@ -38,13 +38,13 @@ theme.taglist_fg_empty = '#222222'
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(5), '#ffffff')
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(5), '#ffffff')
 
----- Prompt
+-- Prompt
 theme.prompt_bg = '#222222'
 theme.prompt_bg_cursor = '#ffffff'
 theme.prompt_fg = '#ffffff'
 theme.prompt_fg_cursor = '#222222'
 
----- Hotkey
+-- Hotkey
 theme.hotkeys_font = 'sans bold 10'
 theme.hotkeys_description_font = 'sans bold 10'
 theme.hotkeys_group_margin = dpi(20)
@@ -56,7 +56,7 @@ theme.hotkeys_fg = '#ffffff'
 theme.hotkeys_border_color = '#ffffff'
 theme.hotkeys_border_width = dpi(2)
 
----- Notification
+-- Notification
 theme.notification_font = 'sans bold 10'
 theme.notification_bg = '#222222'
 theme.notification_fg = '#ffffff'
@@ -67,10 +67,10 @@ theme.notification_width = dpi(360)
 theme.notification_height = dpi(60)
 theme.notification_margin = dpi(10)
 
----- Awesome Icon
+-- Awesome Icon
 theme.awesome_icon = theme_assets.awesome_icon(dpi(30), '#535d6c', '#ffffff')
 
----- Menu
+-- Menu
 theme.menu_font = 'sans bold 10'
 theme.menu_bg_normal = '#222222'
 theme.menu_bg_focus = '#535d6c'
@@ -82,11 +82,11 @@ theme.menu_submenu_icon = themes_path..'default/submenu.png'
 theme.menu_height = dpi(30)
 theme.menu_width = dpi(180)
 
----- Wallpaper
+-- Wallpaper
 theme.wallpaper = nil
 -- theme.wallpaper = themes_path..'default/background.png'
 
----- TitleBar
+-- TitleBar
 theme.titlebar_bg_focus = '#222222'
 theme.titlebar_bg_normal = '#222222'
 theme.titlebar_fg_focus = '#ffffff'
@@ -112,7 +112,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path..'default/titlebar/
 theme.titlebar_maximized_button_normal_active = themes_path..'default/titlebar/maximized_normal_active.png'
 theme.titlebar_maximized_button_focus_active = themes_path..'default/titlebar/maximized_focus_active.png'
 
----- Layout
+-- Layout
 theme.layout_fairh = themes_path..'default/layouts/fairhw.png'
 theme.layout_fairv = themes_path..'default/layouts/fairvw.png'
 theme.layout_floating = themes_path..'default/layouts/floatingw.png'
@@ -130,7 +130,7 @@ theme.layout_cornerne = themes_path..'default/layouts/cornernew.png'
 theme.layout_cornersw = themes_path..'default/layouts/cornersww.png'
 theme.layout_cornerse = themes_path..'default/layouts/cornersew.png'
 
----- Custom Icon Theme
+-- Custom Icon Theme
 -- default path: /usr/share/icons, /usr/share/icons/hicolor
 theme.icon_theme = nil
 
