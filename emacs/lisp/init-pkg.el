@@ -13,11 +13,6 @@
   (setq evil-escape-key-sequence "jk")
   (setq evil-escape-delay 0.2))
 
-(require-package 'evil-nerd-commenter)
-(with-eval-after-load 'evil-maps
-  (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
-  (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
-
 (require-package 'company)
 (add-hook 'prog-mode-hook 'company-mode)
 (with-eval-after-load 'company
@@ -37,9 +32,6 @@
                                shell-mode
                                minibuffer-inactive-mode
                                message-mode)))
-
-(require-package 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (require-package 'which-key)
 (run-with-idle-timer 2 nil #'which-key-mode)
