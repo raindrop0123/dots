@@ -1,9 +1,10 @@
 {
     "workbench.startupEditor": "none",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font',Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.tabSize": 2,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
     // "workbench.colorCustomizations": {
     //     "statusBar.background": "#B48EAD",
     //     "statusBar.noFolderBackground": "#B48EAD",
