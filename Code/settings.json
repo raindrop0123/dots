@@ -1,19 +1,14 @@
 {
     "workbench.startupEditor": "none",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
-    // "workbench.colorCustomizations": {
-    //     "statusBar.background": "#B48EAD",
-    //     "statusBar.noFolderBackground": "#B48EAD",
-    //     "statusBar.debuggingBackground": "#B48EAD",
-    //     "statusBar.foreground": "#434C5E",
-    //     "statusBar.debuggingForeground": "#434C5E"
-    // },
-    "vim.cursorStylePerMode.insert": "line",
+    // Plugin: Vim
     "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.replace": "block-outline",
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
@@ -24,15 +19,14 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.sneak": true,
+    "vim.camelCaseMotion.enable": true,
     "vim.incsearch": true,
     "vim.hlsearch": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#8FBCBB",
-        "#434C5E"
-    ],
-    "vim.statusBarColors.normal": [
-        "#006fa0",
+        "#225577",
         "#ffffff"
     ],
     "vim.statusBarColors.insert": [
@@ -40,7 +34,7 @@
         "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#e80074",
+        "#ff00ff",
         "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
@@ -52,7 +46,7 @@
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#ffd700",
+        "#ffff00",
         "#000000"
     ],
     "vim.statusBarColors.commandlineinprogress": [
@@ -60,19 +54,19 @@
         "#ffffff"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#007ACC",
+        "#000000",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#095859",
+        "#ff0000",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#095859",
+        "#ff0000",
         "#ffffff"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#007ACC",
+        "#ff0000",
         "#ff0000"
     ],
     "vim.normalModeKeyBindings": [],
@@ -91,7 +85,6 @@
         },
     ],
     "vim.insertModeKeyBindingsNonRecursive": [],
-    // Here will change with different vim modes.
     "workbench.colorCustomizations": {
         "statusBar.background": "#e80074",
         "statusBar.noFolderBackground": "#e80074",
