@@ -1,6 +1,6 @@
 {
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Monokai",
     "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.tabSize": 2,
