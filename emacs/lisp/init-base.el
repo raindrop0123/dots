@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+;; modus-themes.el
+(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
+
 ;; package.el
 (package-initialize)
 (setq package-quickstart t)
