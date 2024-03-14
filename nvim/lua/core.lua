@@ -240,7 +240,7 @@ require('lazy').setup({
     { import = 'plugins' },
   },
   ui = {
-    border = 'single',
+    border = 'none',
   },
   performance = {
     rtp = {
