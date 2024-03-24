@@ -135,10 +135,10 @@ draw_bold_text_with_bright_colors = false  # Default
 
 # Primary colors
 [colors.primary]
-#foreground = "#d8d8d8"  # Default
-#background = "#181818"  # Default
-#dim_foreground = "#828482"  # Default
-#bright_foreground = "None"  # Default
+foreground = "#cdd6f4"  # Default: #d8d8d8
+background = "#11111b"  # Default: #181818
+#dim_foreground = "#828482"  # Default:
+#bright_foreground = "None"  # Default:
 
 # Cursor colors
 [colors.cursor]
@@ -147,74 +147,74 @@ draw_bold_text_with_bright_colors = false  # Default
 
 # Vi mode cursor colors
 [colors.vi_mode_cursor]
-#text = "CellBackground"  # Default
-#cursor = "CellForeground"  # Default
+#text = "CellBackground"  # Default:
+#cursor = "CellForeground"  # Default:
 
 # Search colors
 [colors.search.matches]
-#foreground = "#181818"  # Default
-#background = "#ac4242"  # Default
+#foreground = "#181818"  # Default:
+#background = "#ac4242"  # Default:
 
 [colors.search.focused_match]
-#foreground = "#181818"  # Default
-#background = "#f4bf75"  # Default
+#foreground = "#181818"  # Default:
+#background = "#f4bf75"  # Default:
 
 # Hint colors
 [colors.hints.start]
-#foreground = "#181818"  # Default
-#background = "#f4bf75"  # Default
+#foreground = "#181818"  # Default:
+#background = "#f4bf75"  # Default:
 
 [colors.hints.end]
-#foreground = "#181818"  # Default
-#background = "#ac4242"  # Default
+#foreground = "#181818"  # Default:
+#background = "#ac4242"  # Default:
 
 # Line indicator colors
 [colors.line_indicator]
-#foreground = "None"  # Default
-#background = "None"  # Default
+#foreground = "None"  # Default:
+#background = "None"  # Default:
 
 # Footer bar colors
 [colors.footer_bar]
-#foreground = "#181818"  # Default
-#background = "#d8d8d8"  # Default
+#foreground = "#181818"  # Default:
+#background = "#d8d8d8"  # Default:
 
 # Selection colors
 [colors.selection]
-#text = "CellBackground"  # Default
-#background = "CellForeground"  # Default
+#text = "CellBackground"  # Default:
+#background = "CellForeground"  # Default:
 
 # Normal colors
 [colors.normal]
-#black = "#181818"  # Default
-#red = "#ac4242"  # Default
-#green = "#90a959"  # Default
-#yellow = "#f4bf75"  # Default
-#blue = "#6a9fb5"  # Default
-#magenta = "#aa759f"  # Default
-#cyan = "#75b5aa"  # Default
-#white = "#d8d8d8"  # Default
+black = "#45475A"  # Default: #181818
+red = "#F38BA8"  # Default: #ac4242
+green = "#A6E3A1"  # Default: #90a959
+yellow = "#F9E2AF"  # Default: #f4bf75
+blue = "#89B4FA"  # Default: #6a9fb5
+magenta = "#F5C2E7"  # Default: #aa759f
+cyan = "#94E2D5"  # Default: #75b5aa
+white = "#BAC2DE"  # Default: #d8d8d8
 
 # Bright colors
 [colors.bright]
-#black = "#6b6b6b"  # Default
-#red = "#c55555"  # Default
-#green = "#aac474"  # Default
-#yellow = "#feca88"  # Default
-#blue = "#82b8c8"  # Default
-#magenta = "#c28cb8"  # Default
-#cyan = "#93d3c3"  # Default
-#white = "#f8f8f8"  # Default
+black = "#585B70"  # Default: #6b6b6b
+red = "#F38BA8"  # Default: #c55555
+green = "#A6E3A1"  # Default: #aac474
+yellow = "#F9E2AF"  # Default: #feca88
+blue = "#89B4FA"  # Default: #82b8c8
+magenta = "#F5C2E7"  # Default: #c28cb8
+cyan = "#94E2D5"  # Default: #93d3c3
+white = "#A6ADC8"  # Default: #f8f8f8
 
 # Dim colors
 [colors.dim]
-#black = "#0f0f0f"  # Default
-#red = "#712b2b"  # Default
-#green = "#5f6f3a"  # Default
-#yellow = "#a17e4d"  # Default
-#blue = "#456877"  # Default
-#magenta = "#704d68"  # Default
-#cyan = "#4d7770"  # Default
-#white = "#8e8e8e"  # Default
+black = "#45475A"  # Default: #0f0f0f
+red = "#F38BA8"  # Default: #712b2b
+green = "#A6E3A1"  # Default: #5f6f3a
+yellow = "#F9E2AF"  # Default: #a17e4d
+blue = "#89B4FA"  # Default: #456877
+magenta = "#F5C2E7"  # Default: #704d68
+cyan = "#94E2D5"  # Default: #4d7770
+white = "#BAC2DE"  # Default: #8e8e8e
 
 ########
 # BELL #
