@@ -1,7 +1,7 @@
-"""Clipboard
+"" Clipboard
 set clipboard^=unnamed,unnamedplus
 
-"""Disable Distributed Plugins
+"" Disable Distributed Plugins
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -21,7 +21,7 @@ let g:loaded_netrwFileHandlers=1
 let g:loaded_matchit=1
 let g:loaded_matchparen=1
 
-"""Options
+"" Options
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -78,10 +78,10 @@ set complete=.,w,b,u,t,i
 set completeopt=menuone,longest,preview,noselect
 set omnifunc=syntaxcomplete#Complete
 
-"""autocmd
+"" autocmd
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-"""Keys
+"" Keys
 let mapleader="\<Space>"
 let maplocalleader=","
 inoremap jk <Esc>
@@ -90,10 +90,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"""Colorscheme
+"" Colorscheme
 set background=dark
 
-"""vim-plug
+"" vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
@@ -106,7 +106,7 @@ Plug 'LunarWatcher/auto-pairs', {'on': []}
 Plug 'tpope/vim-commentary', {'on': []}
 call plug#end()
 
-"lightline.vim
+" lightline.vim
 augroup lightline
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
@@ -115,7 +115,7 @@ augroup lightline
         \| call lightline#enable()
 augroup END
 
-"auto-pairs
+" auto-pairs
 augroup auto_pairs
   autocmd!
   autocmd InsertEnter * call plug#load('auto-pairs')
@@ -123,7 +123,7 @@ augroup auto_pairs
         \| call autopairs#AutoPairsTryInit()
 augroup END
 
-"vim-commentary
+" vim-commentary
 augroup commentary
   autocmd!
   autocmd BufReadPost * call plug#load('vim-commentary')
