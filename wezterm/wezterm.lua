@@ -12,11 +12,11 @@ if wezterm.config_builder then
 end
 
 -- Theme
-config.color_scheme = 'Sakura'
+config.color_scheme = 'Catppuccin Mocha'
 
 -- Font
 config.font_size = 13.0
-config.font = wezterm.font('Hack Nerd Font', { italic = false, weight = 'Bold' })
+-- config.font = wezterm.font('Hack Nerd Font', { italic = false, weight = 'Bold' })
 config.line_height = 1.15
 
 -- UI
