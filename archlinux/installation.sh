@@ -157,6 +157,7 @@ FONT="$FONT ttf-hack ttf-hack-nerd"
 # FONT="$FONT wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
 # FONT="$FONT ttf-sarasa-gothic otf-codenewroman-nerd ttf-meslo-nerd ttf-mononoki-nerd gnu-free-fonts"
 # FONT="$FONT inter-font cantarell-fonts ttf-victor-mono-nerd"
+# FONT="$FONT ttf-maple"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT
 
 # yay
