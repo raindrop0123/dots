@@ -155,9 +155,9 @@ FONT="$FONT ttf-hack ttf-hack-nerd"
 # FONT="$FONT ttf-arphic-ukai ttf-arphic-uming"
 # FONT="$FONT awesome-terminal-fonts ttf-font-awesome otf-font-awesome"
 # FONT="$FONT wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
-# FONT="$FONT ttf-sarasa-gothic otf-codenewroman-nerd ttf-meslo-nerd ttf-mononoki-nerd gnu-free-fonts"
 # FONT="$FONT inter-font cantarell-fonts ttf-victor-mono-nerd"
-# FONT="$FONT ttf-maple"
+# FONT="$FONT ttf-sarasa-gothic otf-codenewroman-nerd ttf-meslo-nerd ttf-mononoki-nerd gnu-free-fonts"
+# FONT="$FONT ttf-maple ttf-space-mono-nerd"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT
 
 # yay
