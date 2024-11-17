@@ -1,0 +1,176 @@
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+  background: #000000;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'JetBrainsMono Nerd Font', 'Segoe UI', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  background: #000000;
+  color: #ffffff;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+/* LEFT */
+.logo {
+  background: #000000;
+  color: #ffffff;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: #000000;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 2px;
+  margin-right: 2px;
+
+  &.displayed {
+    background: #000000;
+  }
+
+  &.focused {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  &:hover {
+    background: #000000;
+    color: #225577;
+  }
+}
+
+.title {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* RIGHT */
+.binding-mode {
+  background: #000000;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.tiling-direction {
+  background: #000000;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+.cpu i {
+  background: #000000;
+  color: #ffffff;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.cpu {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+.memory i {
+  background: #000000;
+  color: #ffffff;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.memory {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+.battery i {
+  background: #000000;
+  color: #ffffff;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.battery {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+.date i {
+  background: #000000;
+  color: #ffffff;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.date {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 8px;
+}
