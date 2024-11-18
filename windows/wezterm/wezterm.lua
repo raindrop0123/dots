@@ -89,7 +89,7 @@ config.window_frame = {
 }
 
 --- UI ---
-config.line_height = 1.2
+config.line_height = 1.0
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
