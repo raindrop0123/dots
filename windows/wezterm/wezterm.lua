@@ -6,7 +6,7 @@ if wezterm.config_builder then
 end
 
 --- FONT ---
-config.font_size = 12.0
+config.font_size = 9.0
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 --- THEME ---
