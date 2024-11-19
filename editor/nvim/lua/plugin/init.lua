@@ -172,6 +172,14 @@ return {
     end,
   },
   {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {
+      style = "night",
+    },
+  },
+  {
     "akinsho/bufferline.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -190,14 +198,45 @@ return {
     },
   },
   {
-    "rcarriga/nvim-notify",
-    lazy = true,
-    event = "VeryLazy",
-    config = function()
-      vim.notify = require("notify")
-    end,
-  },
-  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+      },
+      dashboard = { enabled = true },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = {
+        enabled = true,
+        debounce = 200,
+        notify_jump = false,
+        notify_end = true,
+        foldopen = true,
+        jumplist = true,
+        modes = { "n", "i", "c" },
+      },
+      styles = {
+        notification = {
+          wo = { wrap = true }
+        },
+      },
+      terminal = {
+        enabled = true,
+        win = {
+          position = 'float',
+          border = 'rounded',
+        },
+      },
+    },
+    keys = {
+      { "<c-\\>", mode = { "n", "t" }, function() Snacks.terminal() end, desc = "Toggle Terminal" },
+      { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+    },
+  }, {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     lazy = true,
@@ -267,25 +306,6 @@ return {
         "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Toggle: Trouble Diagnostics",
       },
-    },
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    lazy = true,
-    cmd = {
-      "ToggleTerm",
-      "ToggleTermSetName",
-      "ToggleTermToggleAll",
-      "ToggleTermSendVisualLines",
-      "ToggleTermSendCurrentLine",
-      "ToggleTermSendVisualSelection",
-    },
-    opts = {},
-    keys = {
-      { "jk", mode = { "t" }, [[<C-\><C-n>]], desc = "Back to Normal Mode" },
-      { "<esc>", mode = { "t" }, [[<C-\><C-n>]], desc = "Back to Normal Mode" },
-      { "<c-\\>", mode = { "n" }, "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Toggle: Horizontal Terminal" },
-      { "<c-\\>", mode = { "t" }, "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Toggle: Horizontal Terminal" },
     },
   },
   {
