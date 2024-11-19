@@ -45,7 +45,6 @@ return {
         },
         custom_highlights = function(color)
           return {
-            Comments = { fg = color.subtext0 },
             CursorLineNR = { fg = color.green, style = { "bold" } },
             Pmenu = { bg = color.crust, fg = color.text },
             PmenuSel = { bg = color.blue, fg = color.crust, style = { "bold", "italic" } },
@@ -180,6 +179,62 @@ return {
     },
   },
   {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    disabled = true,
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    config = function() end,
+  },
+  {
+    "rose-pine/neovim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require("rose-pine").setup({})
+    end,
+  },
+  {
+    "navarasu/onedark.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require("onedark").setup({})
+    end,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require("github-theme").setup({})
+    end,
+  },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require('material').setup({})
+    end,
+  },
+  {
     "akinsho/bufferline.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -196,6 +251,33 @@ return {
         globalstatus = true,
       },
     },
+  },
+  {
+    "folke/noice.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+    dependencies = {
+      { "MunifTanjim/nui.nvim" },
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = false,
+          lsp_doc_border = false,
+        },
+      })
+    end,
   },
   {
     "folke/snacks.nvim",
