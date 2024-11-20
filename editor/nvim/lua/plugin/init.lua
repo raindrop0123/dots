@@ -45,7 +45,7 @@ return {
         },
         custom_highlights = function(color)
           return {
-            CursorLineNR = { fg = color.green, style = { "bold" } },
+            CursorLineNr = { fg = color.green, style = { "bold" } },
             Pmenu = { bg = color.crust, fg = color.text },
             PmenuSel = { bg = color.blue, fg = color.crust, style = { "bold", "italic" } },
           }
