@@ -9,6 +9,10 @@
 (add-hook 'after-init-hook #'evil-mode)
 (with-eval-after-load 'evil
   (setq evil-cross-lines t)
+  (setq evil-normal-state-cursor 'box)
+  (setq evil-insert-state-cursor 'bar)
+  (setq evil-emacs-state-cursor 'bar)
+  (setq evil-visual-state-cursor 'hollow)
   (evil-ex-define-cmd "wq" #'(lambda () (interactive) (save-buffer) (kill-current-buffer))))
 
 (require-package 'evil-collection)
@@ -108,6 +112,7 @@
 (add-hook 'ivy-mode-hook #'counsel-mode)
 (global-set-key (kbd "M-g w") 'counsel-rg)
 (global-set-key (kbd "M-g f") 'counsel-flycheck)
+(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
 (require-package 'swiper)
 (global-set-key (kbd "C-s") 'swiper-isearch)
@@ -245,6 +250,11 @@
   "8" 'winum-select-window-8
   "9" 'winum-select-window-9
   "0" 'winum-select-window-0-or-10
+  "wd" 'delete-other-windows
+  "wD" 'delete-window
+  "rs" 'pp-macroexpand-last-sexp
+  "re" 'eval-last-sexp
+  "rr" 'quickrun
   "hk" 'helpful-key
   "hx" 'helpful-command
   "hv" 'helpful-variable
@@ -258,8 +268,7 @@
   "fc" 'counsel-load-theme
   "ff" 'counsel-find-file
   "fb" 'counsel-ibuffer
-  "fw" 'counsel-rg
-  )
+  "fw" 'counsel-rg)
 
 (require-package 'indent-bars)
 (add-hook 'prog-mode-hook #'indent-bars-mode)
@@ -270,9 +279,24 @@
   (setq minimap-minimum-width 10)
   (setq minimap-window-location 'right))
 
+(require-package 'nerd-icons-ibuffer)
+(add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
+
+(require-package 'nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+
+(require-package 'diredfl)
+(add-hook 'dired-mode-hook #'diredfl-global-mode)
+
+(require-package 'diff-hl)
+(add-hook 'prog-mode-hook #'global-diff-hl-mode)
+
 (require-package 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
   (run-with-idle-timer 10 nil 'exec-path-from-shell-initialize))
+
+(require-package 'git-gutter)
+(add-hook 'prog-mode-hook #'global-git-gutter-mode)
 
 (require-package 'visual-regexp)
 (require-package 'deadgrep)
@@ -290,17 +314,23 @@
   (setq lua-indent-nested-block-content-align nil)
   (setq lua-indent-close-paren-align nil))
 
+(require-package 'prettier-js)
+(add-hook 'js2-mode-hook #'prettier-js-mode)
+(add-hook 'web-mode-hook #'prettier-js-mode)
+
 (require-package 'ess)
 (require-package 'scss-mode)
 (require-package 'markdown-mode)
 (require-package 'vimrc-mode)
 (require-package 'typescript-mode)
 (require-package 'js2-mode)
+(require-package 'web-mode)
 (require-package 'yaml-mode)
 (require-package 'toml-mode)
 (require-package 'json-mode)
 (require-package 'csv-mode)
 (require-package 'go-mode)
+(require-package 'zig-mode)
 
 ;;; LSP & DAP ;;;
 (require-package 'lsp-mode)
