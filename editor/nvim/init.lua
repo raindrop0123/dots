@@ -1,4 +1,4 @@
--- GENERAL --
+--- GENERAL ---
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.cmdheight = 0
@@ -51,7 +51,7 @@ vim.diagnostic.config({
   }
 })
 
--- MAPPING --
+--- MAPPING ---
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("n", "<leader>rc", "<cmd>source $MYVIMRC<cr>", { desc = "Reload config" })
@@ -74,7 +74,7 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
 
--- AUTOCMD --
+--- AUTOCMD ---
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
@@ -116,7 +116,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
--- LAZY.NVIM --
+--- LAZY.NVIM ---
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
