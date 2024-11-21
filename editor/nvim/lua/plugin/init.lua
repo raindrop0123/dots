@@ -179,6 +179,12 @@ return {
     },
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "rebelot/kanagawa.nvim",
     lazy = true,
     event = "VeryLazy",
