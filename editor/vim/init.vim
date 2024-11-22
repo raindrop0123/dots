@@ -1,6 +1,4 @@
 """ REFERENCE """
-" https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
-" https://github.com/chenxuan520/vim-fast
 " https://github.com/skywind3000/vim-init
 
 """ GENERAL """
