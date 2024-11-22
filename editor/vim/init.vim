@@ -40,7 +40,8 @@ set sidescroll=0
 set nofoldenable
 set sidescrolloff=4
 set scrolloff=2
-set completeopt=menuone,preview,noselect
+set complete=.,b,i,w,u,t
+set completeopt=menuone,noinsert,noselect,preview
 set omnifunc=syntaxcomplete#Complete
 set shortmess+=c
 set cpt+=kspell
@@ -65,8 +66,9 @@ set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 
 """ THEME """
+set notermguicolors
 set background=dark
-" colorscheme habamax
+colorscheme habamax
 
 """ INDENTATION """
 set autoindent
@@ -133,16 +135,17 @@ autocmd InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=
 autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
 
 """ MAPPING """
-nnoremap <leader>rc <CMD>edit $MYVIMRC<CR>
-nnoremap <leader>rC <CMD>source $MYVIMRC<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-inoremap jk <ESC>
-cnoremap <C-a> <HOME>
-cnoremap <C-e> <END>
-cnoremap <C-d> <DEL>
+nnoremap <leader>rc <cmd>edit $MYVIMRC<cr>
+nnoremap <leader>rC <cmd>source $MYVIMRC<cr>
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+inoremap jk <esc>
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 
 """ VIM-PLUGIN """
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -175,6 +178,12 @@ Plug 'thinca/vim-quickrun', { 'on': ['QuickRun'] }
 Plug 'easymotion/vim-easymotion', { 'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)'] }
 Plug 'voldikss/vim-floaterm', { 'on': ['FloatermNew', 'FloatermToggle'] }
 Plug 'dense-analysis/ale', { 'on': [] }
+Plug 'prabirshrestha/asyncomplete.vim', { 'on': [] }
+Plug 'prabirshrestha/asyncomplete-buffer.vim', { 'on': [] }
+Plug 'prabirshrestha/asyncomplete-file.vim', { 'on': [] }
+Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'on': [] }
+Plug 'prabirshrestha/vim-lsp', { 'on': [] }
+Plug 'mattn/vim-lsp-settings', { 'on': ['LspInstallServer', 'LspManageServers'] }
 call plug#end()
 
 " vim-polyglot
@@ -309,18 +318,56 @@ nnoremap <leader>gl <Plug>(easymotion-bd-jk)
 nnoremap <leader>gw <Plug>(easymotion-bd-w)
 
 " vim-floaterm
-nnoremap <leader>ttp <cmd>FloatermPrev<cr>
-tnoremap <leader>ttp <c-\><c-n><cmd>FloatermPrev<cr>
-nnoremap <leader>ttT <cmd>FloatermNew<cr>
-tnoremap <leader>ttT <c-\><c-n>:FloatermNew<cr>
-nnoremap <leader>ttn <cmd>FloatermNext<cr>
-tnoremap <leader>ttn <c-\><c-n><cmd>FloatermNext<cr>
-nnoremap <leader>ttt <cmd>FloatermToggle<cr>
-tnoremap <leader>ttt <c-\><c-n><cmd>FloatermToggle<cr>
+nnoremap <leader>tt <cmd>FloatermToggle<cr>
+tnoremap <leader>tt <c-\><c-n><cmd>FloatermToggle<cr>
 
 " ale
 augroup plug_ale
   autocmd!
-  autocmd BufReadPost * call plug#load('ale')
+  autocmd InsertEnter * call plug#load('ale')
         \| autocmd! plug_ale
+augroup END
+
+" asyncomplete.vim
+" asyncomplete-buffer.vim
+" asyncomplete-file.vim
+" asyncomplete-lsp.vim
+" vim-lsp
+" vim-lsp-settings
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+augroup plug_asyncomplete_vim
+  autocmd!
+  autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim', 'asyncomplete-file.vim', 'asyncomplete-lsp.vim', 'vim-lsp')
+        \| autocmd! plug_asyncomplete_vim
+        \| call asyncomplete#enable_for_buffer()
+        \| call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({ 'name': 'buffer', 'allowlist': ['*'], 'blocklist': ['go'], 'completor': function('asyncomplete#sources#buffer#completor'), 'config': { 'max_buffer_size': 100000 } }))
+        \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({ 'name': 'file', 'allowlist': ['*'], 'priority': 10, 'completor': function('asyncomplete#sources#file#completor') }))
+        \| call lsp#enable()
+        \| if executable('clangd') | call lsp#register_server({ 'name': 'clangd', 'cmd': { server_info->['clangd', '--background-index', '--clang-tidy'] }, 'whitelist': ['c', 'cpp'] }) | endif
+        \| if executable('pylsp') | call lsp#register_server({ 'name': 'pylsp', 'cmd': { server_info->['pylsp'] }, 'whitelist': ['python'] }) | endif
+augroup END
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+endfunction
+augroup lsp_install
+  autocmd!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
