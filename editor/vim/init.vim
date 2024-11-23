@@ -1,5 +1,8 @@
 """ REFERENCE """
+" https://github.com/junegunn/vim-plug/wiki/tips
 " https://github.com/skywind3000/vim-init
+" https://github.com/wklken/k-vim
+" https://github.com/amix/vimrc
 
 """ GENERAL """
 let mapleader='\'
@@ -110,9 +113,9 @@ let g:loaded_vimballPlugin=1
 let g:loaded_zipPlugin=1
 
 """ AUTOCMD """
-autocmd BufReadPost * if line("'\"")>1 && line("'\"") <= line('$') | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"")>1&&line("'\"")<=line('$') | exe "normal! g'\"" | endif
 autocmd InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
-autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
+autocmd BufWinEnter * if getfsize(expand('%'))>1048576 | syntax clear | endif
 
 """ MAPPING """
 nnoremap <leader>rc <cmd>edit $MYVIMRC<cr>
@@ -128,8 +131,8 @@ cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
 """ VIM-PLUGIN """
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
+let data_dir=has('nvim')?stdpath('data').'/site':'~/.vim'
+if empty(glob(data_dir.'/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -201,7 +204,7 @@ augroup plug_indentline
   autocmd!
   autocmd BufReadPost * call plug#load('indentLine')
         \| autocmd! plug_indentline
-        \| let g:indentLine_char_list = ['│']
+        \| let g:indentLine_char_list=['│']
         \| IndentLinesToggle
 augroup END
 
@@ -314,9 +317,9 @@ augroup END
 " asyncomplete-lsp.vim
 " vim-lsp
 " vim-lsp-settings
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+inoremap <expr> <Tab> pumvisible()?"\<C-n>":"\<Tab>"
+inoremap <expr> <S-Tab> pumvisible()?"\<C-p>":"\<S-Tab>"
+inoremap <expr> <cr> pumvisible()?asyncomplete#close_popup():"\<cr>"
 augroup plug_asyncomplete_vim
   autocmd!
   autocmd InsertEnter * call plug#load('asyncomplete.vim', 'asyncomplete-buffer.vim', 'asyncomplete-file.vim', 'asyncomplete-lsp.vim', 'vim-lsp')
@@ -331,7 +334,9 @@ augroup END
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
-  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  if exists('+tagfunc')
+    setlocal tagfunc=lsp#tagfunc
+  endif
   nmap <buffer> gd <plug>(lsp-definition)
   nmap <buffer> gs <plug>(lsp-document-symbol-search)
   nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
