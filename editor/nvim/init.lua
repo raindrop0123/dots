@@ -1,3 +1,11 @@
+--- REFERENCE ---
+-- https://github.com/boltlessengineer/NativeVim
+-- https://github.com/HCY-ASLEEP/NVIM-Config
+-- https://github.com/LazyVim/LazyVim
+-- https://github.com/AstroNvim/AstroNvim
+-- https://github.com/NvChad/NvChad
+-- https://github.com/ayamir/nvimdots
+
 --- GENERAL ---
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard = "unnamedplus,unnamed"
